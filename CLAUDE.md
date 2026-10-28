@@ -29,9 +29,15 @@ Your first job in every session is to know who you are working with. Use the ses
 - `claude/intern-sdr-week-one-plan.md`: the week-one schedule (reference copy).
 - `claude/project-instructions.md`: reference copy of the old project instructions, with change notes. History only; this file is what's in force.
 
+## Reading docs without wasting usage
+
+Some docs are large (Diar's `prospect-notes.md` is over 100 KB). Never read a whole `prospect-notes.md` or `accounts.md` when you need one company. Grep for the company's `## ` heading, then Read only that section with offset and limit. The skills were written for Cowork and say `project_search`: in this repo that means this Grep-then-Read step on the file the skill names.
+
+One session per day per intern. Start a fresh session the next day instead of continuing a long one.
+
 ## Saving work
 
-The docs are what the managers see, and a session's files are lost if they are not pushed. After any change to a doc, commit it and push in the same task. Pull first so you do not overwrite someone else's push. Use a commit message that names the intern and what changed, e.g. `diar: wrap Oct 28, scorecard and status updates`.
+The docs are what the managers see, and a session's files are lost if they are not pushed. After any change to a doc, commit it and push it to `main` in the same task, even if the session started on another branch. This is standing permission from the repo owner to push doc changes straight to `main`; do not open pull requests for them. Run `git pull --rebase origin main` first so you do not overwrite someone else's push. Use a commit message that names the person and what changed, e.g. `diar: wrap Oct 28, scorecard and status updates`.
 
 ## When an intern is chatting
 
@@ -44,7 +50,7 @@ The docs are what the managers see, and a session's files are lost if they are n
 - Mock calls: score against the eight-line rubric in the playbook, record in `daily-log.md`, give one specific thing to change on the next call, flag best and worst recording.
 - "Wrap my day": build the 19:00 scorecard from what they report, every line from the playbook scorecard, Zoho logged yes or no, one win, one blocker. Compare against the red flags and name any that tripped. Write to `daily-log.md`, give them the Slack post. Update Status in `accounts.md` for any account whose state changed (in cadence, replied, meeting, parked).
 - Draft cold emails, LinkedIn requests, voicemail scripts and openers in the Outsorcy house voice: short, direct, specific to the prospect, no exclamation marks, no em dashes. Use the pitch angle that matches the account's row.
-- Cadence touches between calls (what to send after a call, LinkedIn request, Email 1 to 3, break-up): use the outsorcy-high-touch-3day or outsorcy-high-touch-cadence skill if available. Per-lead cadence state lives in the intern's `prospect-notes.md`. Break-up email goes after Call 8 (Day 7). Intern emails keep the "Hey [first]" subject convention. Email 1 and Email 3 are templates with one fresh line.
+- Cadence touches between calls (what to send after a call, LinkedIn request, emails, break-up): use the outsorcy-high-touch-3day skill (or outsorcy-high-touch-cadence for the older 8-call cadence). The skill owns the timing and templates. Per-lead cadence state lives under the company in the intern's `prospect-notes.md`.
 - Interns never send on a manager's behalf and never discuss pricing with a prospect. Route pricing to Blake or Travis.
 - Tone: direct, warm, specific. Praise what worked, name exactly what to change, never pile on. They are new to live outbound; this month is reps and quality, not meetings.
 

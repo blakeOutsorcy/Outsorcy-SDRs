@@ -1,6 +1,14 @@
 # How this project works (read this first)
 
-Everyone in the intern SDR program works in this one project: Vullnet, Urese, Diar, Liza, and the managers Blake Danielson and Travis Bennett. There are no separate projects per person.
+Everyone in the intern SDR program works in this one GitHub repo, Outsorcy-SDRs, through Claude Code: Vullnet, Urese, Diar, Liza, and the managers Blake Danielson and Travis Bennett. There are no separate repos per person. (Until Oct 28, 2026 this was a Claude Project. Same docs, same rules, new home.)
+
+## Opening a session
+
+1. Go to claude.ai/code and start a new session on the Outsorcy-SDRs repo.
+2. One time only, before your first session: connect Zoho, Apollo and Slack with your own login at https://claude.ai/customize/connectors. Zoho records belong to whoever is connected, so it has to be you. Connectors are picked up when a session starts, so connect first, then open the session.
+3. One session per day. Start a fresh one each morning instead of going back to yesterday's. Long sessions use up more of the plan, and everything you need tomorrow is in your docs anyway.
+
+Claude saves your docs to the repo for you after every change. If it ever says a save failed, tell a manager before you close the session, or the work is lost.
 
 ## What is where
 
@@ -28,12 +36,12 @@ Three things stay with managers: creating Deals, editing records someone else ow
 
 ## Rules of the room
 
-  - Work only in your own folder. Claude will refuse to write into someone else's, and the project activity log shows every edit.
+  - Work only in your own folder. Claude will refuse to write into someone else's, and the repo history shows every edit and who made it.
   - Do not edit the playbook or the master list. If something is wrong, tell a manager in #phase-2-ai-academy.
   - Everyone can read everyone's folder. That is on purpose: steal good openers, learn from each other's objections, see what accounts others are claiming. Feedback in coaching.md is written knowing you all see it.
   - If it is not in a doc, Claude cannot bring it back tomorrow. If it is not in Zoho, it did not happen.
 
-## Your first chat (run this once)
+## Your first session (run this once)
 
 Set up my day. I am [your name]. Read my coaching.md, give me the playbook summary in ten lines, show me my accounts, and draft my 10:00 Slack post.
 
