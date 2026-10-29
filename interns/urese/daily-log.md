@@ -1,37 +1,28 @@
 # Urese: daily log
 
-Newest day at the top. Claude fills this in from what Urese reports; Urese and the managers can edit it directly too.
+Newest day at the top. Claude fills this in from start-my-day and wrap-my-day (numbers from Zoho); Urese and the managers can edit it directly too.
 
 ## YYYY-MM-DD (Day of week)
 
 ### 10:00 plan
 
   - Feedback I am acting on:
-  - List segment and top accounts today:
-  - Dial target:
-  - Mock scenario:
+  - Overdue calls / live Leads in cadence:
+  - Call sheet: N Leads (N EU, N US), call-backs due:
+  - Claims to enroll today:
   - One thing to improve:
 
-### 15:00 solo block
-
-  - Mock calls: N completed, average X.X
-  - Best: [scenario, score, recording link]
-  - Worst: [scenario, score, recording link]
-  - LinkedIn requests sent:
-  - Cadence enrollments:
-
-### 19:00 scorecard
+### 19:00 scorecard (from Zoho)
 
   - Dials:
   - Connects:
   - Conversations (2+ min):
-  - Meetings:
   - Voicemails:
-  - Cadence enrollments:
-  - Email replies:
+  - Meetings:
+  - Leads enrolled:
+  - Overdue calls at 19:00:
   - LinkedIn requests:
-  - Mock calls (count, average):
-  - Zoho logged same day: yes / no
+  - Mock calls (if assigned, count and average):
   - Win:
   - Blocker:
   - Red flags tripped: none / [which]

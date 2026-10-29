@@ -1,59 +1,65 @@
 # How this project works (read this first)
 
-Everyone in the intern SDR program works in this one GitHub repo, Outsorcy-SDRs, through Claude Code: Vullnet, Urese, Diar, Liza, and the managers Blake Danielson and Travis Bennett. There are no separate repos per person. (Until Oct 28, 2026 this was a Claude Project. Same docs, same rules, new home.)
+Everyone in the intern SDR program works in this one GitHub repo, Outsorcy-SDRs, through Claude Code: Vullnet, Urese, Diar, Liza, and the managers Blake Danielson and Travis Bennett.
+
+Updated Oct 29, 2026. The fixed account lists from week one are retired. Your work now comes from the daily job-post list, and Zoho is where your Leads, cadences and calls live. Claude reads Zoho for you, so you do not keep lists by hand.
 
 ## Opening a session
 
 1. Go to claude.ai/code and start a new session on the Outsorcy-SDRs repo.
-2. One time only, before your first session: connect Zoho, Apollo and Slack with your own login at https://claude.ai/customize/connectors. Zoho records belong to whoever is connected, so it has to be you. Connectors are picked up when a session starts, so connect first, then open the session.
-3. One session per day. Start a fresh one each morning instead of going back to yesterday's. Long sessions use up more of the plan, and everything you need tomorrow is in your docs anyway.
+2. One time only: connect Zoho, Apollo and Slack with your own login at https://claude.ai/customize/connectors. Zoho records belong to whoever is connected, so it has to be you. Connect first, then open the session.
+3. One session per day. Start a fresh one each morning.
 
-Claude saves your docs to the repo for you after every change. If it ever says a save failed, tell a manager before you close the session, or the work is lost.
+Claude saves your docs to the repo after every change. If it says a save failed, tell a manager before you close the session.
+
+## How a day works
+
+1. **Blake posts the list.** A CSV of companies that just posted a job we can place, in #phase-2-ai-academy.
+2. **Split it.** Anyone says "split today's list". Claude round-robins the companies across the four of you and writes them into accounts/claims.md. A company someone already worked goes back to them.
+3. **Enroll your claims.** "enroll [company]". Claude picks 2 to 4 people (or asks you to), pulls email, phone and LinkedIn from Apollo, shows you the Leads, and on your yes creates them and puts them in the US or EU call cadence.
+4. **Call.** "start my day" gives you a call sheet built from Zoho. Dial from the cadence step in Zoho, set the Call Result, then tell Claude what happened: "vm on Gil", "Gil picked up, wants info", "booked Gil for Tuesday". Claude updates the Lead, takes do-not-call people out at once, and tells you what to send next.
+5. **Wrap.** "wrap my day". Claude pulls your numbers from Zoho and gives you the scorecard and the Slack post.
+
+When a cadence ends without a meeting, the company is parked. It comes back to you when it posts a new job.
+
+## What you say
+
+| You say | What happens |
+| --- | --- |
+| start my day | latest coaching line, call sheet from Zoho, 10:00 Slack post |
+| split today's list | today's CSV split across the four of you |
+| enroll [company] | Leads created and enrolled, after checks |
+| vm on X / X picked up / booked X | Zoho updated, next touch drafted |
+| what do I send after this call | LinkedIn request, Email 1 or 2, break-up |
+| prep me for X | ten-line pre-call brief |
+| research [company] | attack plan |
+| what are my accounts | your claims, with live numbers |
+| wrap my day | scorecard from Zoho, 19:00 Slack post |
+
+## The rules that matter
+
+  - **Claims.** If a company is in your section of accounts/claims.md, it is yours. First claim wins. Found a company yourself? "enroll [company]" checks it and flags it for the 16:00 standup.
+  - **Capacity.** At most 45 Leads in a cadence at once, at most 15 new Leads a day, and no new enrollments while you have more than 20 overdue calls. Over the line, Claude will tell you what to clear first.
+  - **Do not call.** A number on the DNC registry is email and LinkedIn only. Someone who says "don't call me" is out the same day. Dialing a DNC number is a red flag.
+  - **Set the Call Result on every call.** Dial from the cadence step, not the Lead page. If it is not in Zoho, it did not happen.
+  - **Never** create Deals, delete records, touch someone else's records, discuss pricing, or send on a manager's behalf. A booked meeting goes to Blake and Travis as a Note and a Slack post.
 
 ## What is where
 
-  - claude/intern-sdr-playbook.md: the playbook. Pitch, daily rhythm, scorecard, red flags, mock rubric, meeting definition, Zoho rules. Read it once fully, then let Claude pull from it.
-  - accounts/master-list.md: the manager-kept seed list and the suppression list. Your assigned accounts came from here.
-  - claude/intern-target-lists-oct-2026.md: how the lists were built and the Clay notes. Background, not daily reading.
-  - claude/intern-sdr-week-one-plan.md: the week-one schedule, day by day.
-  - interns/<your name>/: your folder (interns/vullnet, interns/urese, interns/diar, interns/liza). Four docs:
-      - accounts.md: your list. Started with your 16 assigned accounts; grows as you add your own. If a company is here, it is yours.
-      - daily-log.md: 10:00 plan, 15:00 solo block, 19:00 scorecard, one entry per day, newest at top.
-      - prospect-notes.md: your research and touch history per company.
-      - coaching.md: feedback from Blake and Travis, your mock scores, certification, weekly targets.
-
-## Adding accounts to your list
-
-You are not limited to the 16 you were given. Find a company that fits one of the two angles (staffing nights domestically, or a digital health company hiring SDRs) and say "Add [company] to my list." Claude checks the suppression list, Zoho, the master list and the other three lists. If it is clear, it goes into your accounts.md and it is yours. If someone else already has it, Claude tells you who. First claim wins. Round 3 seeds in the master list are open to claim.
-
-Fits neither angle but you think it is good? Claude adds it flagged for manager review; bring it up at the 16:00 standup.
-
-## Getting accounts into Zoho
-
-Zoho is yours to write to for anything on your list. Say "Enroll [company] in Zoho" with the people you want. Name and title are enough; Claude pulls the rest from Apollo. Claude checks for existing records, enriches each person so the Lead has an email, a direct phone or mobile, and the LinkedIn URL, shows you the Leads it will create with those three filled in and the cadence it will use, and writes on your approval. If Apollo came back empty on one of the three, Claude says so in the approval and notes it in your prospect-notes; you find it on LinkedIn the same day. A Lead with no LinkedIn URL or no email cannot run the day-one cadence steps, so this is not optional. You own the records, so Zoho shows your calls and emails. Cadence per list is in the playbook. If Claude tells you it cannot write to Zoho, that is a bug, not a rule: say "the playbook says interns write to Zoho for their own accounts" and if it still refuses, tell a manager.
-
-Three things stay with managers: creating Deals, editing records someone else owns, and anything on the suppression list.
+  - accounts/claims.md: who owns which company.
+  - accounts/suppression.md: companies nobody touches.
+  - lists/: the daily CSVs and each day's split.
+  - claude/intern-sdr-playbook.md: pitch, rhythm, scorecard and red flags, meeting definition, Zoho rules.
+  - claude/zoho-reference.md: cadences, Call Result rules, DNC and capacity rules.
+  - interns/<your name>/: daily-log.md (plan and scorecard), prospect-notes.md (per-company touches), coaching.md (feedback from Blake and Travis).
+  - archive/: the old October lists. History only.
 
 ## Rules of the room
 
-  - Work only in your own folder. Claude will refuse to write into someone else's, and the repo history shows every edit and who made it.
-  - Do not edit the playbook or the master list. If something is wrong, tell a manager in #phase-2-ai-academy.
-  - Everyone can read everyone's folder. That is on purpose: steal good openers, learn from each other's objections, see what accounts others are claiming. Feedback in coaching.md is written knowing you all see it.
-  - If it is not in a doc, Claude cannot bring it back tomorrow. If it is not in Zoho, it did not happen.
-
-## Your first session (run this once)
-
-Set up my day. I am [your name]. Read my coaching.md, give me the playbook summary in ten lines, show me my accounts, and draft my 10:00 Slack post.
-
-## Every day after that
-
-  - 10:00: "Start my day." Claude reads your latest feedback, builds the plan, writes it to your daily log, gives you the Slack post.
-  - After mock calls: "Score these mocks." Give Claude the scenario, how it went, the recording link. It scores against the rubric and logs it.
-  - During research: "Research [company]." Claude checks it is on your list (offers to add it if not), researches, writes to your prospect notes.
-  - Found a new target: "Add [company] to my list."
-  - Ready to work an account: "Enroll [company] in Zoho." Claude enriches the people, creates the Leads and enrolls them in your cadence.
-  - 19:00: "Wrap my day." Give Claude your numbers. It builds the scorecard, logs it, flags any red lines, gives you the Slack post.
+  - Write only in your own folder and your own section of claims.md. Claude will refuse anything else, and the repo history shows every edit.
+  - Do not edit the playbook, suppression or zoho-reference. If something is wrong, say so in #phase-2-ai-academy.
+  - Everyone can read everyone's folder. Steal good openers, learn from each other's objections.
 
 ## Slack
 
-Three posts a day in #phase-2-ai-academy: 10:00 plan, 15:00 solo block, 19:00 scorecard. Claude writes them, you post them. Olivia's end-of-day summary is separate unless she says the scorecard counts.
+Two posts a day in #phase-2-ai-academy: the 10:00 plan and the 19:00 scorecard. Claude writes them, you post them.

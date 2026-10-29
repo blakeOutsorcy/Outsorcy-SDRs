@@ -1,3 +1,5 @@
+> ARCHIVED Oct 29, 2026. Not an ownership list. Current ownership is accounts/claims.md.
+
 # Urese: accounts
 
 This is Urese's working list. It started as the rows with Urese's name in accounts/master-list.md and grows as Urese adds accounts. If a company is in this doc, it is Urese's. If it is not here and not in another intern's accounts.md, it is open to claim.

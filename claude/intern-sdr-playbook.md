@@ -1,6 +1,6 @@
-# Intern SDR Playbook (reference for the hub and every intern spoke)
+# Intern SDR Playbook
 
-This is the single playbook. Intern projects link this hub as context and read from here. Edit this doc, not copies. Detailed week-one schedule lives in claude/intern-sdr-week-one-plan.md; target lists and Clay notes in claude/intern-target-lists-oct-2026.md.
+This is the single playbook. Edit this doc, not copies. Updated Oct 29, 2026 for the daily job-post workflow. How Zoho is wired (ids, cadences, Call Result rules, DNC, capacity) is in claude/zoho-reference.md. The week-one plan and the Oct 2026 target lists are history.
 
 ## Cohort
 
@@ -10,41 +10,47 @@ This is the single playbook. Intern projects link this hub as context and read f
 
 ## What Outsorcy sells (the pitch the interns carry)
 
-Outsorcy places dedicated full-time SDRs and BDRs, sourced from its Prishtina office, as embedded members of a client's team. Two angles depending on the list:
+Outsorcy places dedicated full-time people, sourced from its Prishtina office, as embedded members of a client's team: SDRs and BDRs, customer support, back office and finance, and some engineering seats.
 
-  - Overnight / 24-7 coverage list: Prishtina is 6 hours ahead of Eastern and 9 ahead of Pacific, so a normal 8am to 4pm Kosovo shift covers 11pm to 7am Pacific. No night differential, no graveyard churn. Companies staffing nights domestically get the half-cost framing. Companies already offshore get quality only, never price.
-  - Health lookalikes list (Teladoc, Wondr, Virta pattern): "we fill the SDR seat you are hiring for." Reference the Wondr Health SDR case study.
-  - Value statement in every call: quality versus offshore, half the cost only versus domestic hires. Never lead with cheap against an offshore incumbent.
+  - The daily list is companies that just posted a job we can place. The pitch is the seat they posted: "you are hiring a [role]; would you be open to a remote hire for it, full time on your hours?"
+  - Value statement: quality versus offshore, half the cost only versus a domestic hire. If the CSV note says they already hire in a lower-cost country, lead with quality only, never price.
+  - Hours: Prishtina covers the full UK and EU day and the US morning. For US roles with late or overnight shifts, a normal Kosovo shift covers the US night with no night differential.
+  - Proof: the Wondr Health SDR placement.
+  - Never quote role counts from a posting (some will have closed), never discuss pricing.
 
 ## Daily rhythm (Prishtina time)
 
-  - 10:00 to 10:30 start of day: read manager feedback, post plan in Slack
-  - 10:30 to 12:00 mock call block: 8 to 10 calls, self-scored, flag best and worst
-  - 12:00 to 13:00 research top 15 accounts for the day
-  - 13:00 to 13:45 lunch
-  - 13:45 to 15:00 LinkedIn and email
-  - 15:00 to 16:00 live call block 1 (Eastern)
-  - 16:00 to 16:20 standup with Blake and Travis (10:00 ET, 8:00 MT)
-  - 16:20 to 18:30 live call block 2 (Eastern and Central), live coaching
-  - 18:30 to 19:00 wrap: log Zoho, post scorecard
+  - 10:00 start my day: coaching line, call sheet from Zoho, Slack post.
+  - 10:15 to 12:00 enroll yesterday's claims: research the people, create Leads, EU Leads enrolled by 12:00. Mock calls in this block when a manager assigns them.
+  - 12:00 to 15:00 EU calls, LinkedIn and email touches from the high-touch skill.
+  - 13:00 to 13:45 lunch.
+  - 15:00 to 16:00 enroll US Leads, first US call block (US calls from 9:00 ET).
+  - 16:00 to 16:20 standup with Blake and Travis.
+  - 16:20 to 19:00 US call block 2 (Eastern and Central). The day's new list usually lands in this window; split it before you leave or first thing tomorrow.
+  - 19:00 wrap my day: scorecard from Zoho, Slack post.
 
-Mountain and Pacific prospects are out of scope in week one.
+Offsets: Kosovo moved to CET on Oct 25, 2026 and the US moves to standard time on Nov 1, 2026. Oct 25 to 31: Prishtina is ET+5 and MT+7, so 16:00 here is 11:00 ET and 9:00 MT, and 9:00 ET is 14:00 here. From Nov 1: ET+6 and MT+8, so 16:00 here is 10:00 ET and 8:00 MT, and 9:00 ET is 15:00 here. The standup follows the calendar invite.
 
-## Dial ramp
+## Dial floor
 
-Week one per intern: 20 on the first live day, then 40, 50, 60, 50 (about 220 for the week). Week two floor is 60 a day, moving toward 60 to 100.
+60 dials a day per intern, moving toward 60 to 100. A day with more than 20 overdue cadence calls is a clean-up day: clear the queue before enrolling anyone new.
 
-## Daily scorecard (target by Thursday / benchmark / red flag)
+## Daily scorecard (benchmark / red flag)
 
-  - Dials: per the ramp
-  - Connects: 4 to 5 / 5 to 8% of dials / under 3% two days running
-  - Conversations (2+ min): 2 to 3 / about half of connects / zero over two days
-  - Meetings: bonus in week one / 10 to 15% of conversations, 1 to 2 per intern for the week
-  - Voicemails: 15 to 20
-  - Cadence enrollments: 25 a day after the first 50 / bounce over 5% is a flag
-  - Email replies: track / 2 to 5%
-  - LinkedIn requests: 25 a day / accept rate 25 to 35% / under 15% is a flag
-  - Mock calls: 8 to 10 a day / average 3.5 or higher / under 3.0 by Wednesday is a flag
+Pulled from Zoho by wrap-my-day.
+
+  - Dials: 60+ / under 40
+  - Connects: 5 to 8% of dials / under 3% two days running
+  - Conversations (2+ min): about half of connects / zero over two days
+  - Meetings: 10 to 15% of conversations, 1 to 2 per intern per week / none in two weeks of full dialing
+  - Voicemails: logged on every no-answer where you left one
+  - Enrollments: claims enrolled within a day of the split / claims sitting 2 days
+  - Overdue cadence calls at 19:00: under 10 / over 20
+  - Lead Status kept current: every completed call has a result and the Lead moved / results with no status change
+  - DNC: zero DNC numbers dialed / any
+  - Email replies: track, 2 to 5% / bounce over 5%
+  - LinkedIn requests: 25 a day, accept rate 25 to 35% / under 15%
+  - Mock calls (when assigned): average 3.5 or higher / under 3.0
   - Zoho logged same day: 100%, no exceptions
 
 ## Mock call rubric (score 1 to 5 on each)
@@ -61,27 +67,25 @@ Company, contact, title, LinkedIn; role and headcount they need; trigger (why no
 
 ## Zoho for interns
 
-  - You are a Zoho user with the SDR role. For any account on your list (interns/<name>/accounts.md) you create the Account, create a Lead per person, log every call and note, and enroll Leads in a cadence. You own those records. Claude does the data entry when you ask; you approve each write.
-  - Before any create: dedup. Claude searches Leads (including converted), Contacts, Accounts and Deals by company, domain and email. A record owned by a manager or another intern is not yours. Say so at standup if you think it should be.
-  - Every Lead carries three contact fields before it is created: Email, a direct Phone or Mobile, and LinkedIn URL (the full linkedin.com/in/ link, Zoho field LinkedIn_URL, added Oct 15, 2026). You give Claude the name and title; Claude pulls all three from Apollo (people match plus waterfall email and phone) before it shows you the create, and shows you exactly what came back. If one is still empty after enrichment, the Lead is still created but the empty field is named in the approval line and in your prospect-notes so you chase it on LinkedIn the same day. Never type a guess into any of the three. The cadences have LinkedIn and email steps on day one; a Lead without those fields is a Lead you cannot work.
-  - Cadences live on the Leads module, so people get enrolled, not companies. Enroll 2 to 4 people per account, the buyer titles from the master list.
-  - Which cadence (managers set this; interns do not create or edit cadences):
-      - Health lookalikes list: "Health tech hiring - 15 day. 10/7/2026". Enroll in the morning Prishtina time. Day 1 has a call, a manual Email 1 that names the role, and LinkedIn.
-      - Overnight coverage list: "High-Touch EU_10/2026" (enroll at 12:00 Prishtina, two calls a day for 3 days then days 5, 7, 10). Managers may switch this to Hammer P1 / P2 for accounts with a confirmed open role.
-      - Never enroll in the Inbound, Bundled services, Pre-seed, Growing teams or Solo expert cadences. Those belong to the core team.
-  - Lead Status moves the cadence: it un-enrolls once status moves past Attempted to Contact, so update status the moment you get a connect or a reply.
-  - Never create Deals. A booked meeting is a Note on the Lead (handoff shape above) plus a Slack post; Blake or Travis creates the opportunity.
-  - Never delete records, never change another user's records, never enroll anyone from the suppression list.
+  - You are a Zoho user with the SDR role. You own the Leads you create for your claims. Claude does the data entry when you ask; you approve each write.
+  - Before any create: dedup across Leads (including converted), Contacts, Accounts and Deals by company, domain and email. A record owned by a manager or another intern is not yours.
+  - Every Lead carries Email, a direct Phone or Mobile, and LinkedIn_URL, pulled from Apollo. If one is still empty, it is named in the approval and you chase it on LinkedIn the same day. Never type a guess.
+  - 2 to 4 people per company: the hiring manager for the role posted, the head of that function, one exec.
+  - Cadences: High-Touch US Calls_10/2026 for US companies and roles, High-Touch EU Calls_10/2026 for UK and EU. Nothing else without a manager. Details and ids in claude/zoho-reference.md.
+  - Dial from the cadence step, not the Lead page, and set the Call Result before the next dial. Then say what happened and log-call moves the Lead Status, un-enrolls when needed and lines up the next touch.
+  - DNC: a registry-flagged number never goes into a call cadence; a person who says do not call is Not Qualified and out the same day.
+  - Capacity: at most 45 Leads in a cadence, no new enrollments over 20 overdue calls, at most 15 new Leads a day.
+  - When a cadence ends without a meeting, the company is parked. It comes back to you when it posts again.
+  - Never create Deals, never delete records, never change another user's records, never enroll anyone from the suppression list. A booked meeting is a Note on the Lead (handoff shape above) plus a Slack post; Blake or Travis creates the opportunity.
 
-## Three Slack posts per intern per day (in #phase-2-ai-academy)
+## Two Slack posts per intern per day (in #phase-2-ai-academy)
 
-  - 10:00 plan: list segment for the day, dial target, mock scenario, one thing to improve from yesterday's feedback
-  - 15:00 solo block done: mock scores (best and worst flagged, recording links), LinkedIn requests sent, cadence enrollments
-  - 19:00 scorecard: every scorecard line above, Zoho logged yes or no, one win, one blocker
+  - 10:00 plan, from start-my-day: feedback acting on, dials planned, Leads on the sheet, claims to enroll, one thing to improve.
+  - 19:00 scorecard, from wrap-my-day: the Zoho numbers, one win, one blocker, red flags.
 
-These are in addition to whatever Olivia asks for as the end-of-day summary. If she asks for the same information, the 19:00 scorecard counts.
+Claude writes them, you post them. Olivia's end-of-day summary is separate unless she says the scorecard counts.
 
-## Rules every spoke follows
+## Rules everyone follows
 
   - Everything goes in Zoho the same day. If it is not in Zoho it did not happen.
   - Suppression: never touch current clients, open deals, ambassador leads, Revenue Inc targets, or anything the core team is working. Check Zoho before adding an account.

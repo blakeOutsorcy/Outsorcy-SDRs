@@ -1,6 +1,6 @@
 # Vullnet: prospect notes
 
-List: [Overnight coverage / Health lookalikes] (set by a manager; see accounts/master-list.md for ownership)
+Ownership: accounts/claims.md. One section per company; the enroll and log-call skills add touches here.
 
 One section per company. Claude adds research here when Vullnet asks; Vullnet logs touches, objections and next steps.
 

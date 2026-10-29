@@ -1,3 +1,5 @@
+> ARCHIVED Oct 29, 2026. Not an ownership list. Current ownership is accounts/claims.md.
+
 # Liza: accounts
 
 This is Liza's working list. It started as the rows with Liza's name in accounts/master-list.md and grows as Liza adds accounts. If a company is in this doc, it is Liza's. If it is not here and not in another intern's accounts.md, it is open to claim.

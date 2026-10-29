@@ -1,3 +1,5 @@
+> ARCHIVED Oct 29, 2026. The fixed October lists were replaced by the daily job-post list. Ownership is accounts/claims.md; suppression is accounts/suppression.md.
+
 # Master account list (manager-kept seed list and suppression list)
 
 This is the list managers build and assign from. Managers edit it; interns read it. It seeds each intern's own list at interns/<name>/accounts.md, and that doc is where ownership actually lives: an intern's accounts are the rows in their accounts.md, which include their master-list rows plus any accounts they added themselves. Full detail on the seed lists (contacts, tiers, Clay enrichments) is in the workbook Intern_Target_Lists_Oct2026.xlsx. Zoho is where activity gets logged.
