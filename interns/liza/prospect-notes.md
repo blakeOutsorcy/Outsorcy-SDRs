@@ -28,3 +28,8 @@ One section per company. Claude adds research here when Liza asks; Liza logs tou
   - Touches: none yet.
   - Next step: self-claimed Oct 30. Enroll the 4 people once overdue calls are at 20 or fewer (165 on Oct 30).
   - Zoho status: no Leads yet.
+
+## FINN
+
+  - Roles seen Oct 30 (job boards, verify on jobs.lever.co/finn): Junior Customer Service Agent, Fraud Management (Germany); Customer Retention Manager (remote Germany or hybrid Munich); Junior Vehicle Logistics Manager (remote Germany, posted Oct 13); Enterprise Account Executive (Munich).
+  - Cadence Oct 30: E1 signal: Ryan fraud CS agent, Felix vehicle logistics Oct 13, Tim retention plus fraud CS, Nikolai and Anne hiring across customer, retention, logistics | Held for E2: roles are remote in Germany, so they already hire outside the Munich office | E1 sent by: Liza
