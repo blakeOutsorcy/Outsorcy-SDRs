@@ -56,6 +56,7 @@ Backfilled Oct 29, 2026 from Zoho Lead ownership. Leads = number of intern-owned
 | heyData | active | 2 | before Oct 29 | backfill from Zoho, Oct 29 |  |
 | Maven Clinic | active | 5 | before Oct 29 | backfill from Zoho, Oct 29 |  |
 | OneDigital Resourcing Edge | active | 4 | before Oct 29 | backfill from Zoho, Oct 29 |  |
+| Spring Health | claimed | 0 | Oct 30 | self-claimed | For 16:00 standup Oct 30. Not enrolled: 165 overdue calls, over the 20 backlog gate. Attack plan: https://claude.ai/artifact/CvUMUkPvRBkj89XmqUHXF9 |
 | Alteos GmbH | parked | 5 | before Oct 29 | backfill from Zoho, Oct 29 |  |
 | Blue Stream Fiber | parked | 5 | before Oct 29 | backfill from Zoho, Oct 29 |  |
 | Built | parked | 5 | before Oct 29 | backfill from Zoho, Oct 29 |  |
