@@ -21,7 +21,7 @@ Zoho user ids, cadence ids and the Call Result rules are in `claude/zoho-referen
 
 ## How the program runs now
 
-  1. Blake posts a CSV in #phase-2-ai-academy of companies that posted a job we can place in the last 24 hours (lists/README.md).
+  1. Every weekday at 08:30 Prishtina the job-signals routine commits lists/YYYY-MM-DD.csv: companies that posted a target title we can place since the last run (lists/README.md, tools/job-signals/README.md). Blake may still post a hand-built CSV in #phase-2-ai-academy.
   2. Someone runs split-list. Companies are round-robined across the four interns and land in `accounts/claims.md` as claimed. A company that is already someone's goes back to them.
   3. Each intern enrolls their claims: 2 to 4 people per company, enriched from Apollo, created as Leads, enrolled in High-Touch US Calls or High-Touch EU Calls.
   4. They work the cadence: dial, set the Call Result, log-call updates Zoho and lines up the next touch.
@@ -50,6 +50,7 @@ The outsorcy-* skills are org skills. If one is not available in the session, fo
   - `accounts/claims.md`: who owns which company, and its status (claimed, active, parked, meeting, closed). The only ownership list.
   - `accounts/suppression.md`: nobody touches these.
   - `lists/`: the daily CSVs and each day's split.
+  - `tools/job-signals/`: the weekday routine that writes the daily list, `target-titles.csv` (the titles we target; managers edit it) and `run-log.csv`. See its README.
   - `claude/intern-sdr-playbook.md`: pitch, daily rhythm, scorecard and red flags, mock rubric, meeting definition, Zoho rules.
   - `claude/zoho-reference.md`: ids, cadences, Call Result to Lead Status, DNC rules, capacity rules, COQL.
   - `claude/intern-zoho-dashboard.md`: the Zoho "Intern SDR Activity" dashboard.

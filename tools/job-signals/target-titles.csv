@@ -1,0 +1,29 @@
+department,title,match_keywords,exclude_keywords,max_staff,base_score,active
+Sales,SDR / BDR,sdr;bdr;sales development;business development representative;business development rep;lead generation specialist,,,8,yes
+Sales,Appointment Setter,appointment setter;appointment setting,,,8,yes
+Sales,Inside Sales Rep,inside sales;isr,,,8,yes
+RevOps,RevOps Analyst / Admin,revenue operations;revops;rev ops;sales operations;sales ops,,,7,yes
+RevOps,CRM Admin,crm administrator;crm admin;crm specialist;salesforce administrator;salesforce admin;hubspot administrator;hubspot admin;hubspot specialist,,,7,yes
+Marketing,PPC Specialist,ppc;paid search;paid media;paid social;paid ads;sem specialist;google ads,,,6,yes
+Marketing,Campaign Specialist,campaign specialist;campaign coordinator;campaign manager;email marketing specialist;marketing campaign,,,6,yes
+Marketing,Social Media Specialist,social media,,,6,yes
+Marketing,Amazon Ads Specialist,amazon ads;amazon advertising;amazon ppc;marketplace advertising,,,6,yes
+Marketing,Marketing Manager,marketing manager,product marketing,,5,yes
+Finance,Financial Analyst / Associate,financial analyst;finance analyst;financial associate;finance associate,,,6,yes
+Finance,FP&A / Financial Modeling,fp&a;fp & a;financial planning and analysis;financial model;financial modeling;excel specialist,,,6,yes
+IT,Help Desk / IT Support,help desk;helpdesk;service desk;it support;desktop support;technical support specialist;it specialist,,,7,yes
+IT,IT Manager,it manager,,,5,yes
+IT,Network Manager / Admin,network manager;network administrator;network admin;network engineer;network security,,,5,yes
+Accounting,Bookkeeper,bookkeeper;bookkeeping,,,8,yes
+Accounting,Accounting Clerk / Assistant,accounting clerk;accounting assistant;accounting associate;accounting specialist;staff accountant;accounts assistant;associate accountant;junior accountant,,,8,yes
+Accounting,AP / AR,accounts payable;accounts receivable;ap specialist;ar specialist;ap clerk;ar clerk;ap/ar;ap accountant;ar accountant,,,8,yes
+Accounting,Billing / Invoicing,billing specialist;billing coordinator;billing clerk;invoicing;invoice specialist;receipts,,,8,yes
+Admin,Executive / Personal / Virtual Assistant,executive assistant;personal assistant;virtual assistant;administrative assistant;admin assistant,,,8,yes
+Data/Analytics,Data Entry,data entry;data operations specialist;data services assistant;catalog specialist,,,8,yes
+Data/Analytics,PowerBI / Tableau / Dashboards,power bi;powerbi;tableau;dashboard;bi analyst;bi developer;business intelligence analyst;reporting analyst;reports coordinator;reporting specialist;reporting coordinator,,,6,yes
+Data/Analytics,Analytics Specialist,analytics specialist;data analyst;analytics analyst,,,6,yes
+Support,Customer Support / Service,customer support;customer service;support specialist;support agent;support advisor;client support;customer experience agent;support representative,,,8,no
+Customer Success,Customer Success / Account Mgmt,customer success;client success;account manager,,,6,no
+HR,Recruiting Coordinator,recruitment coordinator;recruiting coordinator;sourcer;recruiter,,,7,no
+HR,Payroll / People Ops,payroll specialist;payroll administrator;payroll coordinator;people operations;hr coordinator;human resources coordinator;benefits administrator,,,7,no
+Sales,Account Executive,account executive,,,5,no
