@@ -51,6 +51,7 @@ The outsorcy-* skills are org skills. If one is not available in the session, fo
   - `accounts/suppression.md`: nobody touches these.
   - `lists/`: the daily CSVs and each day's split.
   - `tools/job-signals/`: the weekday routine that writes the daily list, `target-titles.csv` (the titles we target; managers edit it) and `run-log.csv`. See its README.
+  - `tools/account-attack-plan/`: in progress (Travis). The attack plan moving into 21 columns on the Living Account List, researched once by managers and read by the interns' skills. README has decisions and open items; `column-spec.md` has the headers.
   - `claude/intern-sdr-playbook.md`: pitch, daily rhythm, scorecard and red flags, mock rubric, meeting definition, Zoho rules.
   - `claude/zoho-reference.md`: ids, cadences, Call Result to Lead Status, DNC rules, capacity rules, COQL.
   - `claude/intern-zoho-dashboard.md`: the Zoho "Intern SDR Activity" dashboard.
