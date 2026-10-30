@@ -2,6 +2,19 @@
 
 Newest day at the top. Claude fills this in from start-my-day and wrap-my-day (numbers from Zoho); Vullnet and the managers can edit it directly too.
 
+## 2026-10-30 (Friday)
+
+### 10:00 plan
+
+  - Feedback I am acting on: no manager line in coaching.md yet. Ask for one at standup.
+  - Overdue calls / live Leads in cadence: 48 overdue, 0 scheduled. 27 Leads with open calls (1 EU, 26 US). Over the 20-overdue gate: clean-up day, no new enrollments.
+  - Call sheet: 27 Leads (1 EU, 26 US), call-backs due: none. Dial once per Lead, close the older Day 1 call (21 Leads have 2 stacked).
+  - EU (12:00 to 15:00): Charlie Emerton, Proximie, Call 8 (last call).
+  - US (15:00 to 19:00): Wipfli (4), GuideIT (4), Lisinski Law Firm (3), Logicbroker (3), Mylo (4), SmartBug Media (3), The United Firm (3), Continuous (2).
+  - Claims to enroll: McConnell Dowell (1 Lead), after the backlog is under 20.
+  - claims.md fix: GuideIT and Wipfli show claimed but are in cadence; Continuous, Lisinski, Logicbroker, Mylo, SmartBug and The United Firm show parked but are in cadence. Should be active.
+  - One thing to improve: set a Call Result on every dial the moment it ends.
+
 ## 2026-10-29 (Thursday)
 
 ### Plan (built about 15:10, rest of day)
