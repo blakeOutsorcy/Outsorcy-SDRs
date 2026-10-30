@@ -29,4 +29,6 @@ One section per company. Claude adds research here when Urese asks; Urese logs t
   - Oct 30 enrolled: Claude Meurisse (CEO) 6673507000007756001 and Raoul Neu (CTO) 6673507000007756002 in High-Touch EU Calls_10/2026. Trigger: Regtech BDM posting, Oct 7.
   - Oct 30 created, not in cadence: Guillaume Hombourger (Head of Client Service) 6673507000007756003. No phone in Apollo. Chase on LinkedIn today.
   - Geoffroy Gailly left LUXHUB Sep 2026 (now House of Training). Dropped.
+  - Oct 30 LinkedIn check: Digital Platform Operations & Technical Support Engineer is live (Strassen, hybrid, two postings, one ENG/FR). Hook for Raoul Neu and Guillaume. BDM reposted 2 days ago.
+  - Cold call pitch: interns/urese/LUXHUB_Cold_Call_Pitch_Urese_v1.pdf
   - Zoho status: 3 Leads, Not Contacted.
