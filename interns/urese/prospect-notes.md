@@ -26,4 +26,7 @@ One section per company. Claude adds research here when Urese asks; Urese logs t
   - Angle: the sales seat has been open since August. Ask if they would look at a remote bilingual seller in their time zone.
   - People (confirmed Oct 30): Claude Meurisse (CEO), Geoffroy Gailly (COO, confirm still in role), Raoul Neu (CTO), Guillaume H. (Head of Client Service). Possible add: Camille A. (Sales Manager).
   - Before the first touch: ask Outsorcy recruiting whether we can supply French-speaking sellers.
-  - Zoho status: no records yet.
+  - Oct 30 enrolled: Claude Meurisse (CEO) 6673507000007756001 and Raoul Neu (CTO) 6673507000007756002 in High-Touch EU Calls_10/2026. Trigger: Regtech BDM posting, Oct 7.
+  - Oct 30 created, not in cadence: Guillaume Hombourger (Head of Client Service) 6673507000007756003. No phone in Apollo. Chase on LinkedIn today.
+  - Geoffroy Gailly left LUXHUB Sep 2026 (now House of Training). Dropped.
+  - Zoho status: 3 Leads, Not Contacted.

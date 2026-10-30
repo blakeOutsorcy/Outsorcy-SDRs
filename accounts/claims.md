@@ -113,7 +113,7 @@ Backfilled Oct 29, 2026 from Zoho Lead ownership. Leads = number of intern-owned
 | Sonatus | active | 4 | before Oct 29 | backfill from Zoho, Oct 29 |  |
 | Tracksmith | active | 3 | Oct 28 | Oct 28 job-post list |  |
 | Vixio | active | 4 | Oct 28 | Oct 28 job-post list |  |
-| LUXHUB | claimed | 0 | Oct 30 | self-claimed | luxhub.com, Strassen, Luxembourg. Raise at the 16:00 standup. |
+| LUXHUB | active | 3 | Oct 30 | self-claimed | luxhub.com, Strassen, Luxembourg. Raise at the 16:00 standup. Guillaume Hombourger not in cadence (no phone). |
 | 4C Strategies | parked | 4 | before Oct 29 | backfill from Zoho, Oct 29 |  |
 
 ## Vullnet
