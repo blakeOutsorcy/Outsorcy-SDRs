@@ -30,4 +30,5 @@ One section per company. Claude adds research here when Urese asks; Urese logs t
   - Oct 30 created, not in cadence: Guillaume Hombourger (Head of Client Service) 6673507000007756003. No phone in Apollo. Chase on LinkedIn today.
   - Geoffroy Gailly left LUXHUB Sep 2026 (now House of Training). Dropped.
   - Oct 30 LinkedIn check: Digital Platform Operations & Technical Support Engineer is live (Strassen, hybrid, two postings, one ENG/FR). Hook for Raoul Neu and Guillaume. BDM reposted 2 days ago.
+  - Oct 30 call, Raoul Neu, EU Day 1 Call 1: wrong number (+41 79 621 95 71 removed). Phone set to LUXHUB switchboard +352 28 80 76, ask for Raoul. Next: send Email 1, find a direct number on LinkedIn.
   - Zoho status: 3 Leads, Not Contacted.
