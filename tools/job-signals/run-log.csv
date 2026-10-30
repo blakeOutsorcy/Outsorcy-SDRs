@@ -1,1 +1,2 @@
 run_utc,window_start_utc,window_end_utc,companies,pages_pulled,pull_errors,postings_in_window,title_matches,kept,new_rows,list_file,cost_usd,balance_usd,status,message
+2026-10-30T19:45:55+00:00,2026-10-29T19:45:55+00:00,2026-10-30T19:45:55+00:00,1588,1528,0,184,5,4,4,lists/2026-10-30.csv,0.20,12.42,ok,
