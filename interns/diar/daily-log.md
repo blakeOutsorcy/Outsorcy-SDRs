@@ -2,6 +2,17 @@
 
 Newest day at the top. Claude fills this in from start-my-day and wrap-my-day (numbers from Zoho); Diar and the managers can edit it directly too.
 
+## 2026-10-30 (Friday)
+
+### 10:00 plan
+
+  - Feedback I am acting on: no manager line in coaching.md yet. Own focus: clear the overdue calls before 16:00.
+  - Overdue calls / live Leads in cadence: 9 overdue (all US Day 3, Calls 5 and 6, due Oct 28), 5 Leads with open calls. Under the 20 gate, so enrolling is allowed.
+  - Call sheet: 5 Leads (0 EU, 5 US), call-backs due: not checked (Zoho Notes not readable by COQL for SDRs). US dials from 14:00 (9:00 ET). Ned Demong, Jillian McDonald (Legion), Lisa Martin (Conga), Ali Hebert (Lockstep): dial once, close 1 older call each. Kasia Blewett (vVARDIS): Call 6.
+  - Claims to enroll: 13 claimed, cap 15 new Leads today. Order: Pathlock (90 Hot), Microblink (78), Otodata, then PatientFi, Ramp. No split file for today yet.
+  - One thing to improve: set a Call Result on every dial the same day, so no call goes overdue again.
+  - Check with a manager: LeadingResponse (3) and Cradle (2) are active in claims.md but have no open calls in Zoho.
+
 ## 2026-10-29 (Thursday)
 
 ### 10:00 plan
