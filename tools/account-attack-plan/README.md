@@ -1,6 +1,6 @@
 # Account attack plan on the Living Account List
 
-Status as of Nov 1, 2026 (Travis). Design agreed, tested on five rows, cells signed off. Not live: the skill file is not written yet. Moved here from a Claude Cowork session ("Account attack plan workflow", Oct 30) so the work carries on in this repo.
+Status as of Nov 1, 2026 (Travis). Design agreed, tested on five rows, cells signed off. Skill written: `.claude/skills/outsorcy-account-attack-plan/SKILL.md` (Plan mode for managers, Read mode for reps). Not live until the daily run is scheduled and the org skill is replaced with this file. Moved here from a Claude Cowork session ("Account attack plan workflow", Oct 30) so the work carries on in this repo.
 
 ## Why
 
@@ -57,7 +57,7 @@ Five rows on the "VC Seed-B, last raise 18-36 mo..." tab (sheetId 1079290677), b
 
 ## Next
 
-  1. Rewrite the email skill to read the row (in progress).
-  2. Write the attack-plan skill; `column-spec.md` is final apart from that.
+  1. Travis uploads the skill file as the org skill outsorcy-account-attack-plan, replacing the old one, and the daily Plan run is scheduled.
+  2. Interns get read access to the sheet and the Google Sheets connector. Read mode needs both.
   3. Add the block to the other tabs (identity columns first, thesis, then the block). Travis 300+ and Remote only lack Country or Region.
-  4. Pre-call brief, then persona verification.
+  4. Rewrite outsorcy-cold-email to read the row, keeping the 3-day cadence (Email 1 after Call 2, Email 2 after Call 4, Zoho break-up). Then the pre-call brief, then persona verification.

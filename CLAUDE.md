@@ -39,7 +39,8 @@ Zoho is the source of truth for people, cadence state and activity. The repo hol
 | "vm on Gil", "Gil picked up", "logged call 3" | log-call | intern |
 | "what do I send after this call", LinkedIn, Email 1 or 2, break-up | outsorcy-high-touch-3day | intern |
 | "prep me for X", "calling X next" | outsorcy-precall-brief | intern |
-| "research [company]", "attack plan for X" | outsorcy-account-attack-plan | intern |
+| "research [company]", "attack plan for X" | outsorcy-account-attack-plan (Read mode: brief from the Living Account List row) | intern |
+| "plan the new rows", "plan [company]", "monthly refresh" | outsorcy-account-attack-plan (Plan mode: writes the row) | manager |
 | "wrap my day" | wrap-my-day | intern |
 | "intern digest", "standup prep" | manager-digest | manager |
 

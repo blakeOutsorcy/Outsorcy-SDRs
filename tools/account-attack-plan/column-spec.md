@@ -24,7 +24,7 @@ Signed off by Travis Nov 1. Cost in any cell is a percentage saving only, never 
 | 5 | Exec changes | Who, which seat, arrived or left, date. Name the current decision-makers. | Monthly |
 | 6 | Headcount direction | Up, flat or down, with the numbers and the pipeline source. | Monthly |
 | 7 | Press & media | Dated items, one line each. | Monthly |
-| 8 | Offshore footprint | Offshore staff, nearshore vendors, BPO use, or not found. If they already outsource: we are another option, no presence needed. | Monthly |
+| 8 | Offshore footprint | Offshore staff, nearshore vendors, BPO use, or not found. If they already outsource: we are another option, no presence needed. | Static; updated if the monthly search turns something up |
 | 9 | Fillable roles | Open roles from the pipeline that we can fill, with location and posting date. "Not in pipeline for this tab" where the tab has no roles. | Role-driven |
 | 10 | Hiring pattern | What the hiring (or its absence) says. | Role-driven |
 | 11 | Lead angle | Finished narrative, two to four sentences: why this company, now, should use staff augmentation. Same story for every rep. | Rewritten only if Growth mode label changes |
