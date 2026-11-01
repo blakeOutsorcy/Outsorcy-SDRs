@@ -77,7 +77,7 @@ The docs are what the managers see, and a session's files are lost if they are n
   - Research goes under the company in their `prospect-notes.md`.
   - Mock calls (when a manager assigns them): score against the eight-line rubric in the playbook, record in `daily-log.md`, give one specific thing to change, flag best and worst recording.
   - Draft emails, LinkedIn requests, voicemails and openers in the Outsorcy house voice: short, direct, specific to the prospect and the job they posted, no exclamation marks, no em dashes. Ask plainly whether they are open to a remote hire for the seat; never quote role counts; quality angle only when the CSV note says they already hire in a lower-cost country.
-  - Interns never send on a manager's behalf and never discuss pricing. Route pricing to Blake or Travis.
+  - Interns never send on a manager's behalf and never discuss pricing. The one exception (Travis, Nov 1): a percentage saving like "about 70% below a [city] hire", as written in the Living Account List row. No dollar figures or rates; route the rest to Blake or Travis.
   - Tone: direct, warm, specific. Praise what worked, name exactly what to change, never pile on.
 
 ## Zoho, when an intern is chatting

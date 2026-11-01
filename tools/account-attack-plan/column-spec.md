@@ -1,8 +1,8 @@
-# Attack-plan column spec (draft, Oct 30, 2026)
+# Attack-plan column spec (Nov 1, 2026)
 
 The 21 headers, in this order, at the right edge of every tab of the Living Account List. Reader skills find columns by these exact header names. Change a header here first, then in the sheet and the skills.
 
-Draft until Travis signs off on the open items in `README.md`.
+Signed off by Travis Nov 1. Cost in any cell is a percentage saving only, never dollar figures or rates.
 
 ## Cell rules
 

@@ -1,6 +1,6 @@
 # Account attack plan on the Living Account List
 
-Status as of Oct 30, 2026 (Travis). Design agreed and tested on five rows. Not live: the skill file is not written yet. Moved here from a Claude Cowork session ("Account attack plan workflow", Oct 30) so the work carries on in this repo.
+Status as of Nov 1, 2026 (Travis). Design agreed, tested on five rows, cells signed off. Not live: the skill file is not written yet. Moved here from a Claude Cowork session ("Account attack plan workflow", Oct 30) so the work carries on in this repo.
 
 ## Why
 
@@ -49,14 +49,15 @@ Five rows on the "VC Seed-B, last raise 18-36 mo..." tab (sheetId 1079290677), b
   - The read-the-row-first rule caught two pipeline errors: a funding round under-reported from an Apollo band, and a "Hiring offshore: Yes" that came from a req for the company's own product, not their team.
   - CFO and department-head names are often "name not found". Expected: reps find people, persona verification checks them.
 
-## Open, waiting on Travis
+## Settled Nov 1 (Travis)
 
-  1. Cell length: the test cells are long by design. Right?
-  2. Supporting angles format: pipe-separated, one segment per persona. Does that work for the email skill?
-  3. Pricing in the row: the test Lead angle quotes a percent saving and a CFO line has a cost comparison. Interns never discuss pricing (CLAUDE.md). Keep cost figures out of the row, or tell the reader skills to strip them?
+  1. Cell length is right. Long by design.
+  2. Supporting angles stays pipe-separated, one segment per persona. The email skill is rewritten to read it.
+  3. Cost: when a row or a draft talks cost, a percentage saving like "about 70% below a [city] hire" is approved, interns included. No dollar figures or rates; anything past the percentage goes to Blake or Travis.
 
 ## Next
 
-  1. Write the skill and finalize `column-spec.md` to match the test rows exactly.
-  2. Add the block to the other tabs (identity columns first, thesis, then the block). Travis 300+ and Remote only lack Country or Region.
-  3. Then, in order: pre-call brief, email skill, persona verification skill.
+  1. Rewrite the email skill to read the row (in progress).
+  2. Write the attack-plan skill; `column-spec.md` is final apart from that.
+  3. Add the block to the other tabs (identity columns first, thesis, then the block). Travis 300+ and Remote only lack Country or Region.
+  4. Pre-call brief, then persona verification.
