@@ -1,6 +1,6 @@
 # Daily job-post lists
 
-Every weekday at 22:00 Prishtina (14:00 MT) the gather routine (tools/job-signals/README.md) commits lists/YYYY-MM-DD.csv here: postings since the last run (Monday covers the weekend) at companies on the Living Account List, for titles in tools/job-signals/target-titles.csv, with senior and hard-to-place roles removed. No file that day means no new matching postings; the reason is in tools/job-signals/run-log.csv.
+Every weekday at 22:00 Prishtina (14:00 MT) the gather routine (tools/job-signals/README.md) commits lists/YYYY-MM-DD.csv here, dated for the next morning's build (the day the interns work it): postings since the last run (Monday covers the weekend) at companies on the Living Account List, for titles in tools/job-signals/target-titles.csv, with senior and hard-to-place roles removed. No file that day means no new matching postings; the reason is in tools/job-signals/run-log.csv.
 
 Next to it, lists/YYYY-MM-DD-review.md is Blake's review: he ticks the companies to work. The 08:00 Prishtina morning build plans and splits only those, and writes lists/<build date>-split.md.
 

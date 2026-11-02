@@ -3,7 +3,8 @@
 
 Finds new job postings at the companies on the Living Account List that match the
 target titles in target-titles.csv, drops senior and hard-to-place roles, scores the
-rest for ease of placement, and writes lists/YYYY-MM-DD.csv (Prishtina date) in the
+rest for ease of placement, and writes lists/YYYY-MM-DD.csv (the date of the next
+08:00 Prishtina build, i.e. the day the interns work it) in the
 format split-list expects, plus lists/YYYY-MM-DD-review.md for Blake's evening review
 (review.py). Appends one row to run-log.csv per run.
 
@@ -529,7 +530,7 @@ def main():
 
     list_file, review_file = "", ""
     if kept_rows:
-        date = now.astimezone(PRISHTINA).strftime("%Y-%m-%d")
+        date = review.next_build(now).strftime("%Y-%m-%d")   # the day the interns work it
         path = os.path.join("/tmp" if a.dry_run else LISTS, f"{date}.csv")
         exists = os.path.exists(path)
         os.makedirs(os.path.dirname(path), exist_ok=True)

@@ -117,6 +117,13 @@ def write_review(path, rows, now, skipped_anz=()):
     stamp = now.astimezone(MT).strftime("%H:%M MT")
     lines = []
     exists = os.path.exists(path)
+    if exists:
+        text = open(path, encoding="utf-8").read()
+        if REVIEWED_RX.search(text) and REVIEWED_RX.search(text).group(1).lower() == "x":
+            # New companies after Blake reviewed: hold the file until he looks again.
+            text = REVIEWED_RX.sub("Reviewed: [ ]", text, count=1)
+            open(path, "w", encoding="utf-8").write(text)
+            lines += [f"New companies added at {stamp} after the review. Tick them, then mark the file reviewed again.", ""]
     if not exists:
         b, g = next_build(now), now.astimezone(MT)
         lines += [f"# Review: jobs for the {b.strftime('%a %b')} {b.day} morning build", "",

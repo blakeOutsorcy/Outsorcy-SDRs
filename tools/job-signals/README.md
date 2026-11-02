@@ -4,7 +4,7 @@ The goal: interns sit down at 12:00 Prishtina with that day's companies, each wi
 
 | When | What | Who |
 |---|---|---|
-| 14:00 MT (22:00 Prishtina) | **Gather.** New postings at Living Account List companies, matched to target titles, placeability rules applied, HQ and role region added. Commits `lists/YYYY-MM-DD.csv` and `lists/YYYY-MM-DD-review.md`, then Slack DMs Blake. | cloud routine |
+| 14:00 MT (22:00 Prishtina) | **Gather.** New postings at Living Account List companies, matched to target titles, placeability rules applied, HQ and role region added. Commits `lists/YYYY-MM-DD.csv` and `lists/YYYY-MM-DD-review.md`, dated for the next morning's build (the day the interns work it), then Slack DMs Blake. | cloud routine |
 | evening MT | **Review.** Blake ticks the companies worth working in the review file and marks it reviewed. | Blake |
 | 08:00 Prishtina (00:00 MT) | **Build.** Approved companies only: attack plan with outsorcy-account-attack-plan (Plan mode), then split-list round-robins them within each region. Commits `accounts/claims.md` and `lists/<today>-split.md`, then Slack DMs Blake. | cloud routine |
 | 12:00 Prishtina | Interns say "what are my hot leads today" (hot-leads skill). | interns |
@@ -28,7 +28,7 @@ A review not done by 08:00 Prishtina waits for the next morning's build. A revie
    - role_region: where the seat is. US, Europe, ANZ, Offshore (a lower-cost country), Other, or blank when the posting gives no location. A US company hiring in Brazil shows up as Offshore: they already hire offshore, quality angle only.
 6. Flags in the note column: large company (over 200 staff), outsourcing competitor, already hiring offshore, same role listed on an earlier date, HQ region unknown.
 7. Ease score 1 to 10: the title's base_score, plus 1 at 200 staff or fewer, plus 1 if the posting mentions remote, minus 1 for a repeat. Competitors always 1.
-8. Writes `lists/<Prishtina date>.csv` (columns in `lists/README.md`) and `lists/<date>-review.md`. No matches means neither file. Appends one row to `run-log.csv`: window, pages pulled, errors, matches, rows kept, cost, treg balance (warns under $3).
+8. Writes `lists/<build date>.csv` (columns in `lists/README.md`) and `lists/<build date>-review.md`, where the build date is the next weekday 08:00 Prishtina. A second gather before that build adds to the same files; if Blake had already marked the file reviewed, it is set back to not reviewed so he sees the new companies. No matches means neither file. Appends one row to `run-log.csv`: window, pages pulled, errors, matches, rows kept, cost, treg balance (warns under $3).
 
 ## Review file (Blake)
 
