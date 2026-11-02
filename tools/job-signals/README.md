@@ -18,7 +18,8 @@ A review not done by 08:00 Prishtina waits for the next morning's build. A revie
 3. **EU discovery.** The Account List has few European companies (204 of 1,588, under 30 in DACH), so the gather also searches treg's job index (`blitzapi.jobs.search`) for target-title postings at companies headquartered in high-cost European countries that are not on the list yet:
    - Countries, in salary tiers: CH, LU, NO, DK, IS; then DE, AT, NL, IE, BE; then SE, FI, GB.
    - 11 to 500 staff and a B2B tech or services industry (software, IT, internet, financial services, consulting, marketing, telecoms and similar), checked on the company record (`crustdata.companies.identify`, free). Staffing and outsourcing firms are skipped.
-   - At most 30 new companies per run: top salary tier first, then ease score, then smaller. The run log counts the rest.
+   - Every fit new company is added to the "EU job signals" tab of the Living Account List by the gather (728 seeded from a 14-day backfill on Nov 2). From then on the daily gather checks it like any other account.
+   - The review file gets the best 20 new companies per run (top salary tier first, then ease score, then smaller), so a day's review stays around 40 companies with the Account List. The run log counts the rest.
    - German and Dutch title keywords (Buchhalter, Kundenservice, Teamassistenz, Vertriebsinnendienst, Kreditoren, klantenservice and more) are in `target-titles.csv`, so they also match at German companies already on the list.
    - About $0.25 to $1 a run. `--no-eu` skips it; `--eu-days 14` backfills.
 4. Window: since the last ok run in `run-log.csv`, so Monday covers the weekend. Never more than 7 days back.
@@ -42,7 +43,7 @@ A review not done by 08:00 Prishtina waits for the next morning's build. A revie
   - `[ ]` to `[x]` for each company to work. Leave `[ ]` to skip it; a few words after `why:` help.
   - `Reviewed: [ ]` to `Reviewed: [x]`, then commit to main.
   - The owner tag (`new`, `re-post, Diar's (active)`, `suppressed`) comes from claims.md and suppression.md. Zoho owners are checked at the build.
-  - A ticked new EU company is added to the "EU job signals" tab of the Living Account List at the build, then planned and split like the rest. From then on the daily gather checks it like any other account.
+  - New EU companies are already on the "EU job signals" tab (the gather adds them); ticked ones are planned and split like the rest.
 
 `review.py log` copies every decision and reason into `review-log.csv` at the build. That log is what we use to automate the review later.
 
@@ -71,13 +72,14 @@ You are running the automated job-signals gather for Blake Danielson (blake@outs
 1. `git checkout main && git pull --rebase origin main`.
 2. `TREG_TOKEN` must be in the environment. If it is not set, find another environment variable whose name contains TREG (`env | cut -d= -f1 | grep -i treg`, names only) and export its value as TREG_TOKEN. Never print, write or commit the token.
 3. Read the Living Account List with the Google Sheets connector. First `get_spreadsheet` with `fields` `["sheets.properties.title"]` for the tab names, then one call: `get_spreadsheet` on `1xaVHsEaLbnMeZRzF9-ppMimbVvRIsFUWw92iqO8XPb8`, `includeGridData` true, `fields` `["sheets.properties.title", "sheets.data.rowData.values.formattedValue"]`, range `'<tab>'!A1:U2000` for every tab, including "EU job signals" once it exists (A to U covers every tab's Region column). The result is saved to a file; pass that path to the script, never retype rows. Connector unavailable or the call fails: stop, run nothing, DM Blake "Gather failed: Google Sheets connector unavailable."
-4. `python3 tools/job-signals/signals.py --accounts <that file>`. The last line is a JSON summary.
+4. `python3 tools/job-signals/signals.py --accounts <that file> --eu-companies-out /tmp/eu_new_companies.csv`. The last line is a JSON summary. The CSV (never committed: company list) holds every fit new EU company found.
+4b. Append the CSV's rows (header excluded) to the "EU job signals" tab: read `'EU job signals'!A:C` for the next empty row and the Domains and LinkedIn URLs already there, drop rows already on the tab, then write the rest with one `update_values` call (columns Account to Added, in the CSV's order). Re-read the range to check. Write nothing else on the sheet.
 5. Commit `lists/<date>.csv` and `lists/<date>-review.md` (if written) and `tools/job-signals/run-log.csv` in one commit, then push. Message: `blake: job-signals gather <Mon DD> (<N> companies to review)` or `blake: job-signals gather <Mon DD>, no new postings`.
 6. Slack DM Blake (user U0A0N4BR7SP, `slack_send_message` with that id as the channel), plain text, no emoji:
    - With a list: "Job review ready: <N> companies (<a> US, <b> Europe, <e> new EU, <c> unknown) for the <build_day from the summary> 08:00 Prishtina build (midnight MT). Review: https://github.com/blakeOutsorcy/Outsorcy-SDRs/edit/main/lists/<date>-review.md". Add one line for any earlier review that `python3 tools/job-signals/review.py pending` shows as still waiting.
    - No new postings: "No new job posts since <window start, MT>. Nothing to review."
    - Exit code 3 (treg auth failed): commit the run log, push, and DM "Gather failed: the treg key needs renewing in the Outsorcy cloud environment."
-7. Do not run split-list, plan any company, write to Zoho or edit any other file.
+7. Do not run split-list, plan any company, write to Zoho or edit any other file. The only sheet write is step 4b.
 
 ## Build runbook (what the 08:00 Prishtina routine does)
 
