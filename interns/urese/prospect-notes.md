@@ -32,3 +32,17 @@ One section per company. Claude adds research here when Urese asks; Urese logs t
   - Oct 30 LinkedIn check: Digital Platform Operations & Technical Support Engineer is live (Strassen, hybrid, two postings, one ENG/FR). Hook for Raoul Neu and Guillaume. BDM reposted 2 days ago.
   - Oct 30 call, Raoul Neu, EU Day 1 Call 1: wrong number (+41 79 621 95 71 removed). Phone set to LUXHUB switchboard +352 28 80 76, ask for Raoul. Next: send Email 1, find a direct number on LinkedIn.
   - Zoho status: 3 Leads, Not Contacted.
+
+## Highland Electric Fleets
+
+  - Researched Nov 2. Attack plan: https://claude.ai/artifact/WCBHPHTkgwhB5Ly3t5Y62a
+  - highlandfleets.com, Beverly, MA. Electric school buses as a service, about 160 people, flat headcount. US region, High-Touch US Calls.
+  - Fit: 75 Hot (roles 40, state 15, history 5, reach 15). Full push.
+  - Trigger: Customer Success Manager x2 (TX, CA), posted Sep 4; Senior Brand Manager and Senior Manager, Growth Marketing, posted Aug 30. $225M preferred equity in 12 months (Aiga Dec 2025, Galvanize Jun 2026).
+  - Nov 2 created: Evelyn Krasnow (SVP Marketing) 6673507000007779012, Nicole Lewandowski (VP Commercial Operations) 6673507000007779013, Natasha Lawrence (Senior Manager Customer Success) 6673507000007779014, Gaurav Dubey (CFO) 6673507000007779015.
+  - DNC registry: Evelyn and Gaurav, email and LinkedIn only. Never in a call cadence.
+  - Nicole and Natasha: High-Touch US Calls at 15:00 Prishtina, Nov 2.
+  - Cadence Nov 2 (Evelyn): E1 signal: Senior Brand Manager and Growth Marketing open since late August | Held for E2: both report to her and she joined recently | E1 sent by: Urese
+  - Cadence Nov 2 (Nicole): E1 signal: CSM open in Texas and California at once | Held for E2: Natasha's team carries the load while the seats are open | E1 sent by: Urese
+  - Cadence Nov 2 (Natasha): E1 signal: two CSM openings on her team since early September | Held for E2: district count growing with the 2026 deployments | E1 sent by: Urese
+  - Cadence Nov 2 (Gaurav): E1 signal: four desk roles open since late summer | Held for E2: $225M raised, headcount flat | E1 sent by: Urese
