@@ -40,9 +40,10 @@ One section per company. Claude adds research here when Urese asks; Urese logs t
   - Fit: 75 Hot (roles 40, state 15, history 5, reach 15). Full push.
   - Trigger: Customer Success Manager x2 (TX, CA), posted Sep 4; Senior Brand Manager and Senior Manager, Growth Marketing, posted Aug 30. $225M preferred equity in 12 months (Aiga Dec 2025, Galvanize Jun 2026).
   - Nov 2 created: Evelyn Krasnow (SVP Marketing) 6673507000007779012, Nicole Lewandowski (VP Commercial Operations) 6673507000007779013, Natasha Lawrence (Senior Manager Customer Success) 6673507000007779014, Gaurav Dubey (CFO) 6673507000007779015.
+  - Nov 2 LinkedIn (Urese): 13 US postings, all listed remote: CSM (CA) 1 week ago, Drafting Specialist 2 weeks, Project Engineer BESS 1 week, Senior Project Developer 2 weeks, Senior Manager Interconnection 6 days, Electrical Reliability Engineer 2 weeks, Field Commissioning Technician (field, not a fit).
   - DNC registry: Evelyn and Gaurav, email and LinkedIn only. Never in a call cadence.
   - Nicole and Natasha: High-Touch US Calls at 15:00 Prishtina, Nov 2.
-  - Cadence Nov 2 (Evelyn): E1 signal: Senior Brand Manager and Growth Marketing open since late August | Held for E2: both report to her and she joined recently | E1 sent by: Urese
-  - Cadence Nov 2 (Nicole): E1 signal: CSM open in Texas and California at once | Held for E2: Natasha's team carries the load while the seats are open | E1 sent by: Urese
+  - Cadence Nov 2 (Evelyn): E1 signal: Brand and Growth Marketing open since late August, company already hires remote | Held for E2: both report to her and she joined recently | E1 sent by: Urese
+  - Cadence Nov 2 (Nicole): E1 signal: CSM role in California listed as remote, open since September | Held for E2: Natasha's team carries the load while the seats are open | E1 sent by: Urese
   - Cadence Nov 2 (Natasha): E1 signal: two CSM openings on her team since early September | Held for E2: district count growing with the 2026 deployments | E1 sent by: Urese
-  - Cadence Nov 2 (Gaurav): E1 signal: four desk roles open since late summer | Held for E2: $225M raised, headcount flat | E1 sent by: Urese
+  - Cadence Nov 2 (Gaurav): E1 signal: hiring remote across the US (CSM, drafting, project engineering, interconnection) | Held for E2: $225M raised, headcount flat | E1 sent by: Urese
