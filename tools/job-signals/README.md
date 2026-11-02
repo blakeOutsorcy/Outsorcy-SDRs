@@ -6,7 +6,7 @@ The goal: interns sit down at 12:00 Prishtina with that day's companies, each wi
 |---|---|---|
 | 14:00 MT (22:00 Prishtina) | **Gather.** New postings at Living Account List companies, matched to target titles, placeability rules applied, HQ and role region added. Commits `lists/YYYY-MM-DD.csv` and `lists/YYYY-MM-DD-review.md`, dated for the next morning's build (the day the interns work it), then Slack DMs Blake. | cloud routine |
 | evening MT | **Review.** Blake ticks the companies worth working in the review file and marks it reviewed. | Blake |
-| 08:00 Prishtina (00:00 MT) | **Build.** Approved companies only: attack plan with outsorcy-account-attack-plan (Plan mode), then split-list round-robins them within each region. Commits `accounts/claims.md` and `lists/<today>-split.md`, then Slack DMs Blake. | cloud routine |
+| 08:00 Prishtina (00:00 MT) | **Build.** Approved companies only: attack plan with outsorcy-account-attack-plan (Plan mode, up to 40 a run, leftovers first next run), then split-list round-robins them within each region. Commits `accounts/claims.md` and `lists/<today>-split.md`, then Slack DMs Blake. | cloud routine |
 | 12:00 Prishtina | Interns say "what are my hot leads today" (hot-leads skill). | interns |
 
 A review not done by 08:00 Prishtina waits for the next morning's build. A review older than 7 days is dropped. Interns never plan or split.
@@ -101,7 +101,8 @@ You are running the automated morning build for Blake Danielson (blake@outsorcy.
    - Plan date empty: full plan (its section 3).
    - Already planned: role-driven update from the new postings (its section 4).
    - Not on the sheet: no plan, mark it "plan pending: not on the Living Account List".
-   - At most 20 full plans; past that, highest ease first, and mark the rest "plan pending". They are planned on a later run.
+   - First, any company still marked "plan pending" in an earlier `lists/*-split.md` that an intern still holds (claims.md status claimed or active): plan it now and change it to "plan ready" in that split file. Interns have little usage, so every assigned company must end up planned.
+   - Then today's companies. At most 40 full plans per run in total (catch-ups included); past that, highest ease first, and mark the rest "plan pending". The next run picks them up first.
    - Do not run the skill's general daily scan (new rows, monthly refresh) here. That stays with Travis until he folds it into this run.
 6. Write the split: split-list step 5. The split file is `lists/<today>-split.md`, first line(s) `From: lists/<date>-review.md`, each company marked "plan ready" or "plan pending".
 7. `python3 tools/job-signals/review.py log <date>` for each ready item.
