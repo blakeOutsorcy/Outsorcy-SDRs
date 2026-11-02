@@ -47,6 +47,8 @@ Zoho is the source of truth for people, cadence state and activity. The repo hol
 
 The outsorcy-* skills are org skills. If one is not available in the session, follow the same steps by hand with the Zoho, Apollo and Slack tools.
 
+Company research is the exception: always use this repo's `outsorcy-account-attack-plan` skill (`.claude/skills/`), never the org skill of the same name (`anthropic-skills:outsorcy-account-attack-plan`). The org one researches the company from scratch and writes a Claude Doc, which spends the intern's usage on work a manager already did. For an intern, "research [company]" only ever reads the sheet row. No row or no Plan date: "No attack plan for [company] yet. Ask Blake or Travis to plan it." and stop, even for a company the intern found themselves.
+
 ## Where things live
 
   - `accounts/claims.md`: who owns which company, and its status (claimed, active, parked, meeting, closed). The only ownership list.
