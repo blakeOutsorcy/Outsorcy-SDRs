@@ -50,7 +50,8 @@ EU_COUNTRIES = [cc for tier in EU_TIERS for cc in tier]
 EU_STAFF = (10, 500)
 EU_SIZES = {"11-50", "51-200", "201-500"}   # checked again on the resolved company, the search filter is loose
 EU_MAX_ROWS = 4000              # cost guard: about $2 of search results per run
-EU_REVIEW_MAX = 30              # new EU companies per review file; the rest are counted in the run log
+EU_REVIEW_MAX = 20              # new EU companies per review file (about 40 jobs a day with the Account List)
+EU_SHEET_COLS = ["Account", "Domain", "LinkedIn", "HQ", "Country", "Employees", "Industry", "Region", "Source", "Added"]
 EU_TAB = "EU job signals"       # sheet tab the morning build adds approved new companies to
 EU_INDUSTRY = (r"software|it services|information technology|technology, information|internet|computer|financial services|"
                r"business consulting|advertising|marketing|telecommunications|information services|e-learning|"
@@ -219,7 +220,7 @@ def _norm_li(url):
     return (url or "").lower().split("?")[0].rstrip("/").replace("://linkedin.com", "://www.linkedin.com")
 
 
-def discover_eu(known, titles, days, start, now, workers=6):
+def discover_eu(known, titles, days, start, now, workers=6, max_rows=None):
     """Target-title postings at companies HQ'd in EU_COUNTRIES (10-500 staff) that are not in `known`
     (the Account List, keyed by LinkedIn URL and name). Returns (jobs, errors); each job carries a
     synthetic `_company` dict like the Account List rows, tab "EU discovery"."""
@@ -230,7 +231,7 @@ def discover_eu(known, titles, days, start, now, workers=6):
     def one(cc, chunk):
         out, cursor = [], None
         for _ in range(40):
-            if total[0] >= EU_MAX_ROWS:
+            if total[0] >= (max_rows or EU_MAX_ROWS):
                 break
             body = {"job": {"title": {"include": chunk}, "date_posted": {"last_days": days}},
                     "company": {"hq": {"country_code": {"include": [cc]}}, "is_agency": False,
@@ -495,6 +496,9 @@ def main():
     ap.add_argument("--workers", type=int, default=6)
     ap.add_argument("--eu-days", type=int, help="EU discovery lookback in days (default: the same window; use 14 for a backfill)")
     ap.add_argument("--no-eu", action="store_true", help="skip EU discovery")
+    ap.add_argument("--eu-review-max", type=int, default=EU_REVIEW_MAX, help="new EU companies put in the review file")
+    ap.add_argument("--eu-max-rows", type=int, help="search-result cap for this run (backfills)")
+    ap.add_argument("--eu-companies-out", help="write every fit new EU company (sheet columns) to this CSV, for the EU job signals tab. Never inside the repo.")
     a = ap.parse_args()
 
     now = datetime.now(timezone.utc).replace(microsecond=0)
@@ -557,7 +561,7 @@ def main():
         if not a.no_eu:
             known = {_norm_li(c["linkedin"]) for c in companies if c["linkedin"]} | {review.norm(c["account"]) for c in companies}
             eu_start = now - timedelta(days=a.eu_days) if a.eu_days else start
-            ej, eerr = discover_eu(known, titles, a.eu_days or days, eu_start, now, a.workers)
+            ej, eerr = discover_eu(known, titles, a.eu_days or days, eu_start, now, a.workers, a.eu_max_rows)
             errors.extend(eerr)
             raw.extend(ej)
     except AuthError as e:
@@ -628,17 +632,30 @@ def main():
             "hq_region": hq_reg, "role_region": role_region(country),
             "company_linkedin": c.get("linkedin", ""), "industry": c.get("industry", "")})
 
-    # EU discovery: keep the best EU_REVIEW_MAX new companies (salary tier, then ease, then smaller)
+    # EU discovery: every fit new company goes to the sheet tab (--eu-companies-out); the review file
+    # gets the best --eu-review-max of them (salary tier, then ease, then smaller)
     eu_rows = [r for r in kept_rows if r["tab"] == "EU discovery"]
     eu_found = len({r["company"] for r in eu_rows})
-    if eu_found > EU_REVIEW_MAX:
+    if a.eu_companies_out:
+        seen_co, added = set(), now.astimezone(PRISHTINA).strftime("%Y-%m-%d")
+        with open(a.eu_companies_out, "w", newline="", encoding="utf-8") as f:
+            w = csv.writer(f)
+            w.writerow(EU_SHEET_COLS)
+            for r in sorted(eu_rows, key=lambda r: (r["hq_country"], r["company"].lower())):
+                k = (r["domain"] or r["company"]).lower()
+                if k in seen_co:
+                    continue
+                seen_co.add(k)
+                w.writerow([r["company"], r["domain"], r["company_linkedin"], "", r["hq_country"], r["employees"],
+                            r["industry"], "Europe", f"job-signals EU discovery: {r['title']}", added])
+    if eu_found > a.eu_review_max:
         tier = {cc: i for i, t in enumerate(EU_TIERS) for cc in t}
         best = {}
         for r in eu_rows:
             k = r["company"]
             rank = (tier.get(r["hq_country"], 9), -int(r["ease_score"]), staff(r))
             best[k] = min(best.get(k, rank), rank)
-        keep = set(sorted(best, key=best.get)[:EU_REVIEW_MAX])
+        keep = set(sorted(best, key=best.get)[:a.eu_review_max])
         kept_rows = [r for r in kept_rows if r["tab"] != "EU discovery" or r["company"] in keep]
 
     counts = {}
