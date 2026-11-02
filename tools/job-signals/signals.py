@@ -561,7 +561,9 @@ def main():
     write_log(list_file=list_file, balance_usd=f"{bal:.2f}" if bal is not None else "", message="; ".join(msg))
 
     companies_n = len({r["company"] for r in kept_rows})
+    b = review.next_build(now)
     print(json.dumps({"status": "ok", "list_file": list_file, "review_file": review_file,
+                      "build_day": f"{b.strftime('%a %b')} {b.day}",
                       "companies": companies_n, "rows": len(kept_rows), "skipped_anz": sorted(skipped_region),
                       "window_start_utc": start.isoformat(), "window_end_utc": now.isoformat(),
                       "postings_in_window": in_window, "title_matches": matched, "pull_errors": len(errors),

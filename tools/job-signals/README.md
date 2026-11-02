@@ -67,7 +67,7 @@ You are running the automated job-signals gather for Blake Danielson (blake@outs
 4. `python3 tools/job-signals/signals.py --accounts <that file>`. The last line is a JSON summary.
 5. Commit `lists/<date>.csv` and `lists/<date>-review.md` (if written) and `tools/job-signals/run-log.csv` in one commit, then push. Message: `blake: job-signals gather <Mon DD> (<N> companies to review)` or `blake: job-signals gather <Mon DD>, no new postings`.
 6. Slack DM Blake (user U0A0N4BR7SP, `slack_send_message` with that id as the channel), plain text, no emoji:
-   - With a list: "Job review ready: <N> companies (<a> US, <b> Europe, <c> unknown) for the <Tue Nov 3> 08:00 Prishtina build (midnight MT). Review: https://github.com/blakeOutsorcy/Outsorcy-SDRs/edit/main/lists/<date>-review.md". Add one line for any earlier review that `python3 tools/job-signals/review.py pending` shows as still waiting.
+   - With a list: "Job review ready: <N> companies (<a> US, <b> Europe, <c> unknown) for the <build_day from the summary> 08:00 Prishtina build (midnight MT). Review: https://github.com/blakeOutsorcy/Outsorcy-SDRs/edit/main/lists/<date>-review.md". Add one line for any earlier review that `python3 tools/job-signals/review.py pending` shows as still waiting.
    - No new postings: "No new job posts since <window start, MT>. Nothing to review."
    - Exit code 3 (treg auth failed): commit the run log, push, and DM "Gather failed: the treg key needs renewing in the Outsorcy cloud environment."
 7. Do not run split-list, plan any company, write to Zoho or edit any other file.
