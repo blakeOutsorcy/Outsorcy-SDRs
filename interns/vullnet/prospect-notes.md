@@ -48,3 +48,9 @@ One section per company. Claude adds research here when Vullnet asks; Vullnet lo
   - Trigger: Data Entry Specialist (20 hours), Boston (Nov 2 list).
   - Check Mickey Palone's email on LinkedIn first: it is on the old seniorlink.com domain.
   - Next step: enroll in High-Touch US Calls once overdue calls are 20 or fewer.
+
+## Logicbroker
+
+  - Nov 2: back from parked on the Nov 2 list. Trigger: Revenue Operations Engineer, New York, on-site, posted Oct 31. Also open in New York: DevOps Engineering Manager (2 weeks), VP of Client Success, Forward Deployed Operations, Product Manager - Retail Expert, Lead Data.
+  - Contacts: Brett Stoppel (VP of Engineering), Omar Qari (CEO), Lauren Heller (Human Resources Director).
+  - Cadence Nov 2: E1 signal: several NY roles open at once (DevOps and Lead Data for Brett, RevOps to client success for Omar, RevOps on top of DevOps and data for Lauren) | Held for E2: DevOps Engineering Manager has been up 2 weeks while the RevOps role just went up, all on-site | E1 sent by: Vullnet
