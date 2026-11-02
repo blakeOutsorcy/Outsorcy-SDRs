@@ -207,8 +207,8 @@ Backfilled Oct 29, 2026 from Zoho Lead ownership. Leads = number of intern-owned
 | Visana Health | parked | 4 | before Oct 29 | backfill from Zoho, Oct 29 |  |
 | Wheely | parked | 2 | before Oct 29 | backfill from Zoho, Oct 29 |  |
 | Xelix | parked | 2 | before Oct 29 | backfill from Zoho, Oct 29 |  |
-| American Exchange Group | claimed | 0 | Nov 2 | lists/2026-11-02.csv | Sales Operations Assistant, Footwear, New York. 228 staff. |
-| GadellNet Consulting Services | claimed | 0 | Nov 2 | lists/2026-11-02.csv | Account Manager, St. Louis. |
-| Lango | claimed | 0 | Nov 2 | lists/2026-11-02.csv | Account Manager posted in North Macedonia. Already hires offshore: quality angle only. |
-| Alliance Funding Group | claimed | 0 | Nov 2 | lists/2026-11-02.csv | Integrated Marketing Specialist. |
-| Careforth | claimed | 0 | Nov 2 | lists/2026-11-02.csv | Data Entry Specialist (20 hours), Boston. |
+| American Exchange Group | claimed | 4 | Nov 2 | lists/2026-11-02.csv | Sales Operations Assistant, Footwear, New York. 228 staff. Leads created Nov 2, not in a cadence yet (overdue gate). |
+| GadellNet Consulting Services | claimed | 3 | Nov 2 | lists/2026-11-02.csv | Account Manager, St. Louis. Leads created Nov 2, not in a cadence yet (overdue gate). |
+| Lango | claimed | 3 | Nov 2 | lists/2026-11-02.csv | Account Manager posted in North Macedonia. Already hires offshore: quality angle only. Leads created Nov 2, not in a cadence yet (overdue gate). |
+| Alliance Funding Group | claimed | 3 | Nov 2 | lists/2026-11-02.csv | Integrated Marketing Specialist. Leads created Nov 2, not in a cadence yet (overdue gate). |
+| Careforth | claimed | 3 | Nov 2 | lists/2026-11-02.csv | Data Entry Specialist (20 hours), Boston. Leads created Nov 2, not in a cadence yet (overdue gate). |

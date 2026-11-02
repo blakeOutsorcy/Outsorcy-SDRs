@@ -16,3 +16,35 @@ One section per company. Claude adds research here when Vullnet asks; Vullnet lo
   - Objections heard:
   - Next step:
   - Zoho status:
+
+## American Exchange Group
+
+  - Nov 2: Leads created in Zoho, enriched from Apollo. Lead ids 6673507000007756022 to 025 (Igal Hodorov, Jay Clark, Thomas Buckley, Joe Mamrout). Not in a cadence yet: waiting on the overdue gate (32 overdue at 13:18).
+  - Trigger: Sales Operations Assistant, Footwear, New York (Nov 2 list).
+  - Next step: enroll in High-Touch US Calls once overdue calls are 20 or fewer.
+
+## GadellNet Consulting Services
+
+  - Nov 2: Leads created in Zoho, enriched from Apollo. Lead ids 6673507000007756026 to 028 (Scott Richards, Rutledge Daugette, Amanda Schroeder). Not in a cadence yet: waiting on the overdue gate (32 overdue at 13:18).
+  - Trigger: Account Manager, St. Louis (Nov 2 list).
+  - Next step: enroll in High-Touch US Calls once overdue calls are 20 or fewer.
+
+## Lango
+
+  - Nov 2: Leads created in Zoho, enriched from Apollo. Lead ids 6673507000007756029 to 031 (John Fuentes, Guyin Liu, Meti Dibra). Not in a cadence yet: waiting on the overdue gate (32 overdue at 13:18).
+  - Trigger: Account Manager, Debar, North Macedonia (Nov 2 list). Quality angle only.
+  - Next step: enroll in High-Touch US Calls once overdue calls are 20 or fewer.
+
+## Alliance Funding Group
+
+  - Nov 2: Leads created in Zoho, enriched from Apollo. Lead ids 6673507000007756032 to 034 (Shona Barnthouse, Rob Pardini, Brij Patel). Not in a cadence yet: waiting on the overdue gate (32 overdue at 13:18).
+  - Trigger: Integrated Marketing Specialist (Nov 2 list).
+  - Chase on LinkedIn today: Rob Pardini (no LinkedIn URL from Apollo).
+  - Next step: enroll in High-Touch US Calls once overdue calls are 20 or fewer.
+
+## Careforth
+
+  - Nov 2: Leads created in Zoho, enriched from Apollo. Lead ids 6673507000007756035 to 037 (Melissa Beck-Hamidi, Vinod Swarna, Mickey Palone). Not in a cadence yet: waiting on the overdue gate (32 overdue at 13:18).
+  - Trigger: Data Entry Specialist (20 hours), Boston (Nov 2 list).
+  - Check Mickey Palone's email on LinkedIn first: it is on the old seniorlink.com domain.
+  - Next step: enroll in High-Touch US Calls once overdue calls are 20 or fewer.
