@@ -132,7 +132,7 @@ Backfilled Oct 29, 2026 from Zoho Lead ownership. Leads = number of intern-owned
 | Allworth Airline Advisors (Formerly RAA) | claimed | 0 | Nov 2 | lists/2026-11-02.csv | Branch Office Administrator, Norwood. |
 | Expression | claimed | 0 | Nov 2 | lists/2026-11-02.csv | System Administrator (Azure), Washington. |
 | Sagacity | claimed | 0 | Nov 2 | lists/2026-11-02.csv | Account Manager, London. Europe bucket, EU cadence. |
-| Highland Electric Fleets | claimed | 0 | Nov 2 | self-claimed | highlandfleets.com, Beverly, MA. US cadence. CSM x2, Senior Brand Manager, Growth Marketing. Raise at the 16:00 standup. Attack plan: https://claude.ai/artifact/WCBHPHTkgwhB5Ly3t5Y62a |
+| Highland Electric Fleets | active | 4 | Nov 2 | self-claimed | highlandfleets.com, Beverly, MA. Nicole Lewandowski and Natasha Lawrence in High-Touch US Calls Nov 2; Evelyn Krasnow and Gaurav Dubey DNC, email and LinkedIn only. CSM (remote), Senior Brand Manager, Growth Marketing. Raise at the 16:00 standup. Attack plan: https://claude.ai/artifact/WCBHPHTkgwhB5Ly3t5Y62a |
 
 ## Vullnet
 
