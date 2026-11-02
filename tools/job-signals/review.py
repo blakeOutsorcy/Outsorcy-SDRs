@@ -27,7 +27,8 @@ MT = ZoneInfo("America/Denver")
 ET = ZoneInfo("America/New_York")
 PRISHTINA = ZoneInfo("Europe/Belgrade")
 MAX_AGE_DAYS = 7
-REGIONS = ["US", "Europe", "Unknown"]
+REGIONS = ["US", "Europe", "Europe new", "Unknown"]
+GROUP_HEAD = {"Europe new": "Europe, new companies not on the Account List"}
 LOG_COLS = ["list_date", "company", "domain", "hq_region", "decision", "reason", "best_ease", "departments",
             "titles", "employees", "tab", "owner", "flags"]
 
@@ -113,6 +114,8 @@ def write_review(path, rows, now, skipped_anz=()):
     groups = {reg: [] for reg in REGIONS}
     for posts in _companies(rows).values():
         reg = posts[0].get("hq_region") or "Unknown"
+        if posts[0].get("tab") == "EU discovery":
+            reg = "Europe new"
         groups.setdefault(reg, []).append(posts)
     stamp = now.astimezone(MT).strftime("%H:%M MT")
     lines = []
@@ -136,7 +139,9 @@ def write_review(path, rows, now, skipped_anz=()):
                   "  - Then change the line below to `Reviewed: [x]` and commit to main.",
                   "  - The 08:00 Prishtina build (midnight MT) plans and splits only reviewed files. "
                   "Not reviewed by then: it waits for the next morning.",
-                  "  - Owner `new` or `re-post` comes from accounts/claims.md. Zoho owners are checked at the build.", "",
+                  "  - Owner `new` or `re-post` comes from accounts/claims.md. Zoho owners are checked at the build.",
+                  "  - \"Europe, new companies\" are not on the Account List yet. Ticked ones are added to its "
+                  "\"EU job signals\" tab at the build, then planned and split like the rest.", "",
                   "Reviewed: [ ]", ""]
         if skipped_anz:
             lines += [f"Skipped (ANZ, for later): {', '.join(sorted(skipped_anz))}", ""]
@@ -145,7 +150,8 @@ def write_review(path, rows, now, skipped_anz=()):
         if not comps:
             continue
         comps.sort(key=lambda ps: (-max(int(p["ease_score"]) for p in ps), ps[0]["company"].lower()))
-        head = f"## {reg} ({len(comps)})" if not exists else f"## {reg} (added {stamp})"
+        name = GROUP_HEAD.get(reg, reg)
+        head = f"## {name} ({len(comps)})" if not exists else f"## {name} (added {stamp})"
         lines += [head, ""]
         for ps in comps:
             p0 = ps[0]
@@ -224,9 +230,21 @@ def pending():
         else:
             rows = _list_rows(date)
             item["status"] = "ready"
-            item["approved"] = [{**e, "postings": [{k: r.get(k, "") for k in ("title", "job_city", "job_country",
-                                "role_region", "url", "posted_et", "ease_score", "matched_title", "note")}
-                                for r in _match(e, rows)]} for e in entries if e["approved"]]
+            item["approved"] = []
+            for e in entries:
+                if not e["approved"]:
+                    continue
+                ps = _match(e, rows)
+                a = {**e, "postings": [{k: r.get(k, "") for k in ("title", "job_city", "job_country", "role_region",
+                                        "url", "posted_et", "ease_score", "matched_title", "note")} for r in ps]}
+                new = next((r for r in ps if r.get("tab") == "EU discovery"), None)
+                if new:   # the build adds this row to the EU job signals tab before planning
+                    a["new_company"] = {"Account": new["company"], "Domain": new.get("domain", ""),
+                                        "LinkedIn": new.get("company_linkedin", ""), "HQ": "",
+                                        "Country": new.get("hq_country", ""), "Employees": new.get("employees", ""),
+                                        "Industry": new.get("industry", ""), "Region": "Europe",
+                                        "Source": f"job-signals EU discovery, {date}"}
+                item["approved"].append(a)
             item["skipped"] = [{"company": e["company"], "reason": e["reason"]} for e in entries if not e["approved"]]
         out.append(item)
     print(json.dumps(out, indent=1))

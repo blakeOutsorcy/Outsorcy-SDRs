@@ -1,32 +1,32 @@
 department,title,match_keywords,exclude_keywords,max_staff,base_score,active
-Sales,SDR / BDR,sdr;bdr;sales development;business development representative;business development rep;business development specialist;business development associate;lead generation specialist,,,8,yes
+Sales,SDR / BDR,sdr;bdr;sales development;business development representative;business development rep;business development specialist;business development associate;lead generation specialist;neukundengewinnung;akquise,,,8,yes
 Sales,Appointment Setter,appointment setter;appointment setting,,,8,yes
-Sales,Inside Sales Rep,inside sales;isr,,,8,yes
+Sales,Inside Sales Rep,inside sales;isr;vertriebsinnendienst;innendienst vertrieb;telefonvertrieb;binnendienst verkoop,,,8,yes
 RevOps,RevOps Analyst / Admin,revenue operations;revops;rev ops;sales operations;sales ops,,,7,yes
-RevOps,CRM Admin,crm administrator;crm admin;crm specialist;crm operations;salesforce administrator;salesforce admin;hubspot administrator;hubspot admin;hubspot specialist,,,7,yes
+RevOps,CRM Admin,crm administrator;crm admin;crm specialist;crm operations;salesforce administrator;salesforce admin;hubspot administrator;hubspot admin;hubspot specialist;crm manager,,,7,yes
 Marketing,PPC Specialist,ppc;paid search;paid media;paid social;paid ads;sem specialist;google ads,,,6,yes
 Marketing,Campaign Specialist,campaign specialist;campaign coordinator;campaign manager;email marketing specialist;marketing campaign,,,6,yes
 Marketing,Social Media Specialist,social media,,,6,yes
 Marketing,Amazon Ads Specialist,amazon ads;amazon advertising;amazon ppc;marketplace advertising,,,6,yes
 Marketing,Marketing Manager,marketing manager,product marketing,,5,yes
-Marketing,Marketing Coordinator / Specialist,marketing coordinator;marketing specialist;marketing associate;marketing operations;marketing assistant,product marketing,,6,yes
+Marketing,Marketing Coordinator / Specialist,marketing coordinator;marketing specialist;marketing associate;marketing operations;marketing assistant;online marketing manager;marketing assistent;marketing assistentin;marketingmedewerker,product marketing,,6,yes
 Finance,Financial Analyst / Associate,financial analyst;finance analyst;financial associate;finance associate,,,6,yes
 Finance,FP&A / Financial Modeling,fp&a;fp & a;financial planning and analysis;financial model;financial modeling;excel specialist,,,6,yes
-IT,Help Desk / IT Support,help desk;helpdesk;service desk;it support;desktop support;technical support specialist;it specialist,,,7,yes
+IT,Help Desk / IT Support,help desk;helpdesk;service desk;it support;desktop support;technical support specialist;it specialist;it-support;servicedesk;it support mitarbeiter;first level support;1st level support,,,7,yes
 IT,IT Manager,it manager,,,5,yes
 IT,Network Manager / Admin,network manager;network administrator;network admin;network engineer;network security,,,5,yes
-IT,Systems / ERP Admin,peoplesoft administrator;netsuite administrator;sap administrator;servicenow administrator;erp administrator;systems administrator;system administrator,,,6,yes
+IT,Systems / ERP Admin,peoplesoft administrator;netsuite administrator;sap administrator;servicenow administrator;erp administrator;systems administrator;system administrator;systemadministrator;systembetreuer,,,6,yes
 IT,Junior Software Engineer,software engineer 1;software engineer i;junior software engineer;associate software engineer;junior developer,,,5,yes
-Accounting,Bookkeeper,bookkeeper;bookkeeping,,,8,yes
-Accounting,Accounting Clerk / Assistant,accounting clerk;accounting assistant;accounting associate;accounting specialist;accountant;accounts assistant,,,8,yes
-Accounting,AP / AR,accounts payable;accounts receivable;ap specialist;ar specialist;ap clerk;ar clerk;ap/ar;ap accountant;ar accountant,,,8,yes
-Accounting,Billing / Invoicing,billing specialist;billing coordinator;billing clerk;invoicing;invoice specialist;receipts,,,8,yes
-Admin,Executive / Personal / Virtual Assistant,executive assistant;personal assistant;virtual assistant;administrative assistant;admin assistant;office assistant;office administrator;administrative coordinator,,,8,yes
+Accounting,Bookkeeper,bookkeeper;bookkeeping;buchhalter;buchhalterin;finanzbuchhalter;finanzbuchhaltung;buchhaltung;boekhouder;bokföringsassistent;bogholder;regnskapsmedarbeider,,,8,yes
+Accounting,Accounting Clerk / Assistant,accounting clerk;accounting assistant;accounting associate;accounting specialist;accountant;accounts assistant;sachbearbeiter buchhaltung;buchhaltungsassistent;administratief medewerker,,,8,yes
+Accounting,AP / AR,accounts payable;accounts receivable;ap specialist;ar specialist;ap clerk;ar clerk;ap/ar;ap accountant;ar accountant;kreditorenbuchhalter;debitorenbuchhalter;kreditorenbuchhaltung;debitorenbuchhaltung;crediteurenadministratie;debiteurenadministratie;debiteurenbeheer,,,8,yes
+Accounting,Billing / Invoicing,billing specialist;billing coordinator;billing clerk;invoicing;invoice specialist;receipts;fakturist;fakturierung;facturatie,,,8,yes
+Admin,Executive / Personal / Virtual Assistant,executive assistant;personal assistant;virtual assistant;administrative assistant;admin assistant;office assistant;office administrator;administrative coordinator;assistenz;teamassistenz;assistenz der geschäftsführung;sekretariat;sekretärin;directiesecretaresse;managementassistent;office assistent,,,8,yes
 Admin,Project Coordinator,project coordinator;program coordinator;operations coordinator,,,7,yes
-Data/Analytics,Data Entry,data entry;data operations specialist;data services assistant;catalog specialist,,,8,yes
+Data/Analytics,Data Entry,data entry;data operations specialist;data services assistant;catalog specialist;datenerfassung;dateneingabe,,,8,yes
 Data/Analytics,PowerBI / Tableau / Dashboards,power bi;powerbi;tableau;dashboard;bi analyst;bi developer;business intelligence analyst;reporting analyst;reports coordinator;reporting specialist;reporting coordinator,,,6,yes
 Data/Analytics,Analytics Specialist,analytics specialist;data analyst;analytics analyst,,,6,yes
-Support,Customer Support / Service,customer support;customer service;support specialist;support agent;support advisor;client support;customer experience agent;customer experience associate;customer experience specialist;support representative;knowledge base,,,8,yes
+Support,Customer Support / Service,customer support;customer service;support specialist;support agent;support advisor;client support;customer experience agent;customer experience associate;customer experience specialist;support representative;knowledge base;kundenservice;kundenbetreuer;kundenbetreuerin;kundenbetreuung;kundendienst;klantenservice;kundeservice;kundtjänst;asiakaspalvelu,,,8,yes
 Ops,Implementation / Onboarding Specialist,implementation specialist;implementation coordinator;onboarding specialist;customer activation;activation specialist,,,7,yes
 Ops,Claims / Quality Auditor,quality auditor;claims auditor;claims processor;claims specialist;enrollment specialist,,,7,yes
 Customer Success,Customer Success / Account Mgmt,customer success;client success;account manager,,,6,yes

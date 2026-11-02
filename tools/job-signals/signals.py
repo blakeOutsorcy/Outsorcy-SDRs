@@ -2,7 +2,9 @@
 """Daily job-signals list for the intern SDR program.
 
 Finds new job postings at the companies on the Living Account List that match the
-target titles in target-titles.csv, drops senior and hard-to-place roles, scores the
+target titles in target-titles.csv, plus (EU discovery) target-title postings at companies
+headquartered in high-cost European countries that are not on the list yet. Drops senior
+and hard-to-place roles, scores the
 rest for ease of placement, and writes lists/YYYY-MM-DD.csv (the date of the next
 08:00 Prishtina build, i.e. the day the interns work it) in the
 format split-list expects, plus lists/YYYY-MM-DD-review.md for Blake's evening review
@@ -41,23 +43,38 @@ MAX_WINDOW_DAYS = 7             # never look back further than this
 LOW_BALANCE_USD = 3.0
 SKIP_HQ_REGIONS = {"ANZ"}       # ANZ goes to managers later; skipped for now
 
+# EU discovery: companies off the Account List, HQ in a high-cost European country (Kosovo-like time zones).
+# Tiers rank the review: highest salaries first.
+EU_TIERS = [["CH", "LU", "NO", "DK", "IS"], ["DE", "AT", "NL", "IE", "BE"], ["SE", "FI", "GB"]]
+EU_COUNTRIES = [cc for tier in EU_TIERS for cc in tier]
+EU_STAFF = (10, 500)
+EU_SIZES = {"11-50", "51-200", "201-500"}   # checked again on the resolved company, the search filter is loose
+EU_MAX_ROWS = 4000              # cost guard: about $2 of search results per run
+EU_REVIEW_MAX = 30              # new EU companies per review file; the rest are counted in the run log
+EU_TAB = "EU job signals"       # sheet tab the morning build adds approved new companies to
+EU_INDUSTRY = (r"software|it services|information technology|technology, information|internet|computer|financial services|"
+               r"business consulting|advertising|marketing|telecommunications|information services|e-learning|"
+               r"data infrastructure|accounting|insurance|media production|research services|professional training")
+EU_SKIP_INDUSTRY = r"staffing|recruit|outsourc|human resources services|executive search"
+
 # Columns split-list reads (lists/README.md), then the three job-signals columns.
 LIST_COLS = ["posted_et", "hours_ago", "tab", "company", "domain", "employees", "hq_country", "title", "category",
              "job_city", "job_country", "url", "source", "job_id", "note", "same_role_posted_in_n_locations",
-             "ai_summary", "department", "matched_title", "ease_score", "hq_region", "role_region"]
+             "ai_summary", "department", "matched_title", "ease_score", "hq_region", "role_region",
+             "company_linkedin", "industry"]
 LOG_COLS = ["run_utc", "window_start_utc", "window_end_utc", "companies", "pages_pulled", "pull_errors",
             "postings_in_window", "title_matches", "kept", "new_rows", "list_file", "cost_usd", "balance_usd",
             "status", "message"]
 
 TAB_SHORT = [("PE/Debt Backed", "PE 6+"), ("PE/Debt, no raise 5", "PE 5+"), ("VC Seed-B", "VC Seed-B"),
              ("Digital health", "Digital health"), ("Travis 300", "Travis 300+"), ("Using competitors", "Using competitors"),
-             ("Remote only", "Remote only")]
+             ("Remote only", "Remote only"), (EU_TAB, EU_TAB)]
 
 # Placeability rules (built up over the Oct 27-28 manual checks).
 SENIOR = r"\b(senior|sr\.?|snr|starszy|director|directeur|vp|svp|evp|vice president|head of|chief|cfo|cto|coo|ceo|cmo|principal|staff (software|data|product|site|content|machine|security|backend|frontend|full)|member of technical staff|lead(?! generation)|leader|team lead|leiter|controller|president|superintendent|general manager|branch manager|architect|arquitecto|tax manager|reporting officer|expert partner)\b"
 SENIOR_OK = r"(associate\s*/\s*sr\.? associate|senior associate|sr\.? associate(?! scientist|,? research)|semi-senior)"
-HARD_TITLE = r"\b(physician|md/do|nurse|rn|lpn|therapist|psychiatrist|psychologist|counsel+or|clinician|chiropractor|medical expert|consultor emocional|clinical (investigator|social worker|qa|stewardship|practice)|pharmacist|dentist|histology|lab professionals|technician|installer|installation|cleaning|warehouse(?! management system)(?!\))|driver|cdl|field|außendienst|estimator|community liaison|in-person|on-?site|insurance agent|financial advisor|caregiver|home care|manufacturing|supervisor|showroom|on-camera|research associate|scientist, fpd|attorney|area prevention specialist|operations manager|teacher|forward deployed|medical assistant|licensed|loan officer|outside sales|sales representative - branch|clets|gd-rdc|entretien)\b"
-HARD_SUMMARY = r"\b(in-person|in person|on-site|onsite|in-office|on site|field-based|in the field|travel to (client|customer) sites|experiments|cgmp|territory plans|store and warehouse|branch business plan|construction (activities|operations|teams)|site personnel|marine construction|through construction|conducting visits|customer visits|field monitoring|community outreach and meetings|showings)\b"
+HARD_TITLE = r"\b(physician|md/do|nurse|rn|lpn|therapist|psychiatrist|psychologist|counsel+or|clinician|chiropractor|medical expert|consultor emocional|clinical (investigator|social worker|qa|stewardship|practice)|pharmacist|dentist|histology|lab professionals|technician|installer|installation|cleaning|warehouse(?! management system)(?!\))|driver|cdl|field|außendienst|estimator|community liaison|in-person|on-?site|insurance agent|financial advisor|caregiver|home care|manufacturing|supervisor|showroom|on-camera|research associate|scientist, fpd|attorney|area prevention specialist|operations manager|teacher|forward deployed|medical assistant|licensed|loan officer|outside sales|sales representative - branch|clets|gd-rdc|entretien|d2d|door[- ]to[- ]door|face[- ]to[- ]face|promoter|fundraiser|haustür)\b"
+HARD_SUMMARY = r"\b(in-person|in person|on-site|onsite|in-office|on site|field-based|in the field|travel to (client|customer) sites|experiments|cgmp|territory plans|store and warehouse|branch business plan|construction (activities|operations|teams)|site personnel|marine construction|through construction|conducting visits|customer visits|field monitoring|community outreach and meetings|showings|door[- ]to[- ]door|face[- ]to[- ]face)\b"
 KEEP_ALWAYS = ["warehouse management system"]
 COMPETITORS = {"accelone", "keyideas infotech private limited", "listo global", "ontop", "frontier",
                "growmotely", "isotalent", "bruntwork", "cloudstaff", "virtual latinos", "tribe wellness sales"}
@@ -198,6 +215,85 @@ def pull_crustdata(companies, since_utc):
     return out, None
 
 
+def _norm_li(url):
+    return (url or "").lower().split("?")[0].rstrip("/").replace("://linkedin.com", "://www.linkedin.com")
+
+
+def discover_eu(known, titles, days, start, now, workers=6):
+    """Target-title postings at companies HQ'd in EU_COUNTRIES (10-500 staff) that are not in `known`
+    (the Account List, keyed by LinkedIn URL and name). Returns (jobs, errors); each job carries a
+    synthetic `_company` dict like the Account List rows, tab "EU discovery"."""
+    kws = sorted({k for t in titles for k in t["kws"]})
+    chunks = [kws[i:i + 50] for i in range(0, len(kws), 50)]
+    jobs, errors, total = [], [], [0]
+
+    def one(cc, chunk):
+        out, cursor = [], None
+        for _ in range(40):
+            if total[0] >= EU_MAX_ROWS:
+                break
+            body = {"job": {"title": {"include": chunk}, "date_posted": {"last_days": days}},
+                    "company": {"hq": {"country_code": {"include": [cc]}}, "is_agency": False,
+                                "employee_count": {"min": EU_STAFF[0], "max": EU_STAFF[1]}},
+                    "max_results": 50}
+            if cursor:
+                body["cursor"] = cursor
+            res, err = treg_call("blitzapi.jobs.search", body)
+            if err:
+                return out, f"eu search {cc}: {err}"
+            rs = res.get("results") or []
+            with _cost_lock:
+                total[0] += len(rs)
+            for j in rs:
+                j["_src"], j["_hq"] = "blitz-search", cc
+                out.append(j)
+            cursor = res.get("cursor")
+            if not cursor or not rs:
+                break
+        return out, None
+
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        for out, err in ex.map(lambda a: one(*a), [(cc, ch) for cc in EU_COUNTRIES for ch in chunks]):
+            jobs.extend(out)
+            if err:
+                errors.append(err)
+
+    # keep in-window postings at companies not already on the list
+    fresh, by_li = [], {}
+    for j in jobs:
+        dt = parse_ts(j.get("date_posted"))
+        li = _norm_li(j.get("company_linkedin_url"))
+        if not dt or dt < start or dt > now + timedelta(hours=1) or "/company/" not in li:
+            continue
+        if li in known or review.norm(j.get("company_name")) in known:
+            continue
+        fresh.append(j)
+        by_li.setdefault(li, j)
+
+    # resolve each new company once (free): domain, size, industry
+    info, lis = {}, list(by_li)
+    for i in range(0, len(lis), 20):
+        res, err = treg_call("crustdata.companies.identify", {"professional_network_profile_urls": lis[i:i + 20]})
+        if err:
+            errors.append(f"identify: {err}")
+            continue
+        for m in res or []:
+            best = (m.get("matches") or [{}])[0].get("company_data", {}).get("basic_info", {})
+            info[_norm_li(m.get("matched_on"))] = best
+    for j in fresh:
+        li = _norm_li(j.get("company_linkedin_url"))
+        b = info.get(li, {})
+        industry = "; ".join(b.get("industries") or [])
+        j["_company"] = {"tab": "EU discovery", "account": b.get("name") or j.get("company_name") or "",
+                         "domain": (b.get("primary_domain") or "").lower(), "linkedin": j.get("company_linkedin_url") or "",
+                         "hq": "", "country": j["_hq"], "employees": b.get("employee_count_range") or "",
+                         "industry": industry, "region": "Europe"}
+    fresh = [j for j in fresh if j["_company"]["employees"] in EU_SIZES
+             and re.search(EU_INDUSTRY, j["_company"]["industry"].lower())
+             and not re.search(EU_SKIP_INDUSTRY, j["_company"]["industry"].lower())]
+    return fresh, errors
+
+
 # ---------------------------------------------------------------- inputs
 def short_tab(title):
     for prefix, short in TAB_SHORT:
@@ -270,7 +366,7 @@ def load_titles():
             exc = [k.strip().lower() for k in (r.get("exclude_keywords") or "").split(";") if k.strip()]
             if not kws:
                 continue
-            titles.append({"department": r["department"].strip(), "title": r["title"].strip(),
+            titles.append({"department": r["department"].strip(), "title": r["title"].strip(), "kws": kws,
                            "rx": re.compile(r"(?<![a-z0-9])(" + "|".join(re.escape(k) for k in kws) + r")(?![a-z0-9])"),
                            "exc": exc, "max_staff": int(r["max_staff"]) if (r.get("max_staff") or "").strip() else None,
                            "base": int(r.get("base_score") or 5)})
@@ -397,6 +493,8 @@ def main():
     ap.add_argument("--since-hours", type=float, help="override the window (default: since the last ok run, else 24h)")
     ap.add_argument("--dry-run", action="store_true", help="write the list to stdout path in /tmp, not lists/, and skip the run log")
     ap.add_argument("--workers", type=int, default=6)
+    ap.add_argument("--eu-days", type=int, help="EU discovery lookback in days (default: the same window; use 14 for a backfill)")
+    ap.add_argument("--no-eu", action="store_true", help="skip EU discovery")
     a = ap.parse_args()
 
     now = datetime.now(timezone.utc).replace(microsecond=0)
@@ -456,6 +554,12 @@ def main():
         if err:
             errors.append(err)
         raw.extend(cj)
+        if not a.no_eu:
+            known = {_norm_li(c["linkedin"]) for c in companies if c["linkedin"]} | {review.norm(c["account"]) for c in companies}
+            eu_start = now - timedelta(days=a.eu_days) if a.eu_days else start
+            ej, eerr = discover_eu(known, titles, a.eu_days or days, eu_start, now, a.workers)
+            errors.extend(eerr)
+            raw.extend(ej)
     except AuthError as e:
         write_log(status="auth_error", message=str(e)[:300], pages_pulled=len(with_li))
         print(f"treg auth failed: {e}", file=sys.stderr); return 3
@@ -468,7 +572,8 @@ def main():
     in_window, matched, kept_rows, seen, skipped_region = 0, 0, [], set(), set()
     for j in raw:
         dt = parse_ts(j.get("date_posted"))
-        if not dt or dt < start or dt > now + timedelta(hours=1):
+        eu_new = j.get("_src") == "blitz-search"
+        if not dt or (dt < start and not eu_new) or dt > now + timedelta(hours=1):
             continue
         url = (j.get("url") or "").split("?")[0]
         if url in seen:
@@ -503,6 +608,8 @@ def main():
             notes.append("already hiring offshore (lower-cost country): quality angle only")
         if hq_reg == "Unknown":
             notes.append("HQ region unknown: worked as US unless Blake says otherwise")
+        if eu_new:
+            notes.append(f"new company, not on the Account List ({c['industry'] or 'industry unknown'})")
         if "remote" in (j.get("title") or "").lower() or "remote" in (j.get("ai_summary") or "").lower():
             score += 1
         prev = prev_pairs.get((c["account"].lower(), (j.get("title") or "").strip().lower()))
@@ -518,7 +625,21 @@ def main():
             "source": j.get("_src"), "job_id": job_id(j.get("url")), "note": "; ".join(notes),
             "ai_summary": (j.get("ai_summary") or "").replace("\n", " ").strip(),
             "department": tt["department"], "matched_title": tt["title"], "ease_score": 1 if competitor else max(1, min(10, score)),
-            "hq_region": hq_reg, "role_region": role_region(country)})
+            "hq_region": hq_reg, "role_region": role_region(country),
+            "company_linkedin": c.get("linkedin", ""), "industry": c.get("industry", "")})
+
+    # EU discovery: keep the best EU_REVIEW_MAX new companies (salary tier, then ease, then smaller)
+    eu_rows = [r for r in kept_rows if r["tab"] == "EU discovery"]
+    eu_found = len({r["company"] for r in eu_rows})
+    if eu_found > EU_REVIEW_MAX:
+        tier = {cc: i for i, t in enumerate(EU_TIERS) for cc in t}
+        best = {}
+        for r in eu_rows:
+            k = r["company"]
+            rank = (tier.get(r["hq_country"], 9), -int(r["ease_score"]), staff(r))
+            best[k] = min(best.get(k, rank), rank)
+        keep = set(sorted(best, key=best.get)[:EU_REVIEW_MAX])
+        kept_rows = [r for r in kept_rows if r["tab"] != "EU discovery" or r["company"] in keep]
 
     counts = {}
     for r in kept_rows:
@@ -535,8 +656,12 @@ def main():
         path = os.path.join("/tmp" if a.dry_run else LISTS, f"{date}.csv")
         exists = os.path.exists(path)
         os.makedirs(os.path.dirname(path), exist_ok=True)
+        cols = LIST_COLS
+        if exists:
+            with open(path, newline="", encoding="utf-8") as f:
+                cols = next(csv.reader(f))
         with open(path, "a" if exists else "w", newline="", encoding="utf-8") as f:
-            w = csv.DictWriter(f, fieldnames=LIST_COLS, extrasaction="ignore")
+            w = csv.DictWriter(f, fieldnames=cols, extrasaction="ignore")
             if not exists:
                 w.writeheader()
             w.writerows(kept_rows)
@@ -557,6 +682,9 @@ def main():
         msg.append(f"LOW TREG BALANCE ${bal:.2f}: top up")
     if skipped_region:
         msg.append(f"skipped {len(skipped_region)} ANZ companies")
+    eu_kept = len({r["company"] for r in kept_rows if r["tab"] == "EU discovery"})
+    if not a.no_eu:
+        msg.append(f"EU discovery: {eu_found} new companies found, {eu_kept} kept for review")
     if not kept_rows:
         msg.append("no new matching postings; no list file written")
     write_log(list_file=list_file, balance_usd=f"{bal:.2f}" if bal is not None else "", message="; ".join(msg))
@@ -566,6 +694,7 @@ def main():
     print(json.dumps({"status": "ok", "list_file": list_file, "review_file": review_file,
                       "build_day": f"{b.strftime('%a %b')} {b.day}",
                       "companies": companies_n, "rows": len(kept_rows), "skipped_anz": sorted(skipped_region),
+                      "eu_new_companies": eu_kept,
                       "window_start_utc": start.isoformat(), "window_end_utc": now.isoformat(),
                       "postings_in_window": in_window, "title_matches": matched, "pull_errors": len(errors),
                       "cost_usd": round(_cost["micro"] / 1e6, 2), "balance_usd": bal}))

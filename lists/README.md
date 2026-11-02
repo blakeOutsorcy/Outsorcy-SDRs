@@ -14,13 +14,14 @@ Either works:
 
 ## Columns
 
-posted_et, hours_ago, tab, company, domain, employees, hq_country, title, category, job_city, job_country, url, source, job_id, note, same_role_posted_in_n_locations, ai_summary, department, matched_title, ease_score, hq_region, role_region
+posted_et, hours_ago, tab, company, domain, employees, hq_country, title, category, job_city, job_country, url, source, job_id, note, same_role_posted_in_n_locations, ai_summary, department, matched_title, ease_score, hq_region, role_region, company_linkedin, industry
 
   - One row per job posting. A company can appear several times (same role in several cities, or several roles).
   - tab is the segment Blake's search came from (PE 6+, PE 5+, Digital health, Using competitors, VC Seed-B, Travis 300+).
   - note flags "large company (N staff)" and "already hiring in a lower-cost country". The second one means quality angle only, never price.
   - department and matched_title say which target title the posting matched. ease_score (1 to 10) ranks how easy the seat is to fill; rows come sorted by it. Routine files only.
   - hq_region (US, Europe, Unknown) decides the cadence and the split bucket. role_region (US, Europe, ANZ, Offshore, Other, blank) is where the seat is; Offshore means they already hire offshore, quality angle only. Routine files from Nov 2, 2026.
+  - tab "EU discovery" marks a company found by the EU discovery search, not on the Account List yet; company_linkedin and industry come from its company record. Routine files from Nov 3, 2026.
 
 ## After the split
 
