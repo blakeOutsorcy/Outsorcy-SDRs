@@ -53,9 +53,9 @@ A review not done by 08:00 Prishtina waits for the next morning's build. A revie
 | base_score | 1 to 8. |
 | active | yes or no. |
 
-- Rows with `active` set to no are switched off: customer support, customer success, recruiting, payroll and account executive. Set one to yes to start pulling it.
+- Rows with `active` set to no are switched off: recruiting, payroll and account executive (Blake, Nov 2: no AE). Set one to yes to start pulling it.
 - Change the file, commit and push. The next run uses it.
-- The under-50 Manager rule, the senior and remote rules and the ANZ skip are at the top of `signals.py`.
+- The under-50 Manager rule (Account Manager and Activation Manager are exempt: not people managers), the senior and remote rules and the ANZ skip are at the top of `signals.py`.
 
 ## Gather runbook (what the 14:00 MT routine does)
 

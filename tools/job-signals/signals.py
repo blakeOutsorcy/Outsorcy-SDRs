@@ -35,6 +35,7 @@ PRISHTINA = ZoneInfo("Europe/Belgrade")  # Kosovo time
 TOKEN = os.environ.get("TREG_TOKEN", "").strip()
 
 MANAGER_MAX_STAFF = 49          # titles containing "manager" only at companies under 50 staff
+MANAGER_OK = r"\b(account manager|activation manager)\b"   # not people managers: any size
 LARGE_COMPANY = 200             # flagged, not dropped (split-list decides)
 MAX_WINDOW_DAYS = 7             # never look back further than this
 LOW_BALANCE_USD = 3.0
@@ -329,7 +330,7 @@ def match_title(title, n_staff, titles):
             continue
         if tt["max_staff"] and n_staff and n_staff > tt["max_staff"]:
             return None, f"over {tt['max_staff']} staff for {tt['title']}"
-        if re.search(r"\bmanager\b", t) and (not n_staff or n_staff > MANAGER_MAX_STAFF):
+        if re.search(r"\bmanager\b", t) and not re.search(MANAGER_OK, t) and (not n_staff or n_staff > MANAGER_MAX_STAFF):
             return None, f"manager title at {n_staff or 'unknown'} staff"
         return tt, None
     return None, "not a target title"
