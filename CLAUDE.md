@@ -21,9 +21,9 @@ Zoho user ids, cadence ids and the Call Result rules are in `claude/zoho-referen
 
 ## How the program runs now
 
-  1. Every weekday at 08:30 Prishtina the job-signals routine commits lists/YYYY-MM-DD.csv: companies that posted a target title we can place since the last run (lists/README.md, tools/job-signals/README.md). Blake may still post a hand-built CSV in #phase-2-ai-academy.
-  2. Someone runs split-list. Companies are round-robined across the four interns and land in `accounts/claims.md` as claimed. A company that is already someone's goes back to them.
-  3. Each intern enrolls their claims: 2 to 4 people per company, enriched from Apollo, created as Leads, enrolled in High-Touch US Calls or High-Touch EU Calls.
+  1. Every weekday at 22:00 Prishtina (14:00 MT) the gather routine commits lists/YYYY-MM-DD.csv and a review file: companies that posted a target title we can place since the last run (tools/job-signals/README.md). Blake reviews it that evening.
+  2. At 08:00 Prishtina the morning build takes the companies Blake approved, writes or updates each one's attack plan on the Living Account List, and runs split-list: round robin within each region (US, Europe), into `accounts/claims.md` as claimed. A company that is already someone's goes back to them. Interns never plan or split.
+  3. At 12:00 each intern asks "what are my hot leads today" and enrolls their claims: 2 to 4 people per company, enriched from Apollo, created as Leads, enrolled in High-Touch US Calls or High-Touch EU Calls.
   4. They work the cadence: dial, set the Call Result, log-call updates Zoho and lines up the next touch.
   5. Companies that finish a cadence without a meeting are parked. They come back to the same intern only when they post a fresh job and show up in a new list.
 
@@ -33,7 +33,7 @@ Zoho is the source of truth for people, cadence state and activity. The repo hol
 
 | Say | Skill | Who |
 |---|---|---|
-| "split today's list" | split-list | anyone |
+| "what are my hot leads today", "what did I get today" | hot-leads | intern |
 | "start my day" | start-my-day | intern |
 | "enroll [company]" | enroll | intern |
 | "vm on Gil", "Gil picked up", "logged call 3" | log-call | intern |
@@ -43,6 +43,7 @@ Zoho is the source of truth for people, cadence state and activity. The repo hol
 | "plan the new rows", "plan [company]", "monthly refresh" | outsorcy-account-attack-plan (Plan mode: writes the row) | manager |
 | "wrap my day" | wrap-my-day | intern |
 | "intern digest", "standup prep" | manager-digest | manager |
+| "split today's list" (the morning build runs it) | split-list | manager |
 
 The outsorcy-* skills are org skills. If one is not available in the session, follow the same steps by hand with the Zoho, Apollo and Slack tools.
 
@@ -50,8 +51,8 @@ The outsorcy-* skills are org skills. If one is not available in the session, fo
 
   - `accounts/claims.md`: who owns which company, and its status (claimed, active, parked, meeting, closed). The only ownership list.
   - `accounts/suppression.md`: nobody touches these.
-  - `lists/`: the daily CSVs and each day's split.
-  - `tools/job-signals/`: the weekday routine that writes the daily list, `target-titles.csv` (the titles we target; managers edit it) and `run-log.csv`. See its README.
+  - `lists/`: the daily CSVs, Blake's review file for each (`-review.md`) and each day's split (`-split.md`, named for the day the interns work it).
+  - `tools/job-signals/`: the gather and morning build routines, `target-titles.csv` (the titles we target; managers edit it), `run-log.csv` and `review-log.csv` (Blake's review decisions). See its README.
   - `tools/account-attack-plan/`: in progress (Travis). The attack plan moving into 21 columns on the Living Account List, researched once by managers and read by the interns' skills. README has decisions and open items; `column-spec.md` has the headers.
   - `claude/intern-sdr-playbook.md`: pitch, daily rhythm, scorecard and red flags, mock rubric, meeting definition, Zoho rules.
   - `claude/zoho-reference.md`: ids, cadences, Call Result to Lead Status, DNC rules, capacity rules, COQL.

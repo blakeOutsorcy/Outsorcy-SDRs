@@ -4,20 +4,22 @@
 Finds new job postings at the companies on the Living Account List that match the
 target titles in target-titles.csv, drops senior and hard-to-place roles, scores the
 rest for ease of placement, and writes lists/YYYY-MM-DD.csv (Prishtina date) in the
-format split-list expects. Appends one row to run-log.csv per run.
+format split-list expects, plus lists/YYYY-MM-DD-review.md for Blake's evening review
+(review.py). Appends one row to run-log.csv per run.
 
 Usage (from the repo root):
   TREG_TOKEN=... python3 tools/job-signals/signals.py --accounts <file> [--accounts <file> ...]
       [--since-hours N] [--dry-run]
 
 --accounts takes the Living Account List as either a CSV with columns
-tab,account,domain,linkedin,hq,country,employees,industry, or the JSON a Google Sheets
+tab,account,domain,linkedin,hq,country,employees,industry[,region], or the JSON a Google Sheets
 connector returns (spreadsheets.get with grid data, or values.get). The account list is
 never written into the repo.
 
 Exit codes: 0 ok, 2 bad input, 3 treg auth failed (logged), 4 other pull failure (logged).
 """
 import argparse, csv, json, math, os, re, sys, time, threading, urllib.request, urllib.error
+import review
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
@@ -35,11 +37,12 @@ MANAGER_MAX_STAFF = 49          # titles containing "manager" only at companies 
 LARGE_COMPANY = 200             # flagged, not dropped (split-list decides)
 MAX_WINDOW_DAYS = 7             # never look back further than this
 LOW_BALANCE_USD = 3.0
+SKIP_HQ_REGIONS = {"ANZ"}       # ANZ goes to managers later; skipped for now
 
 # Columns split-list reads (lists/README.md), then the three job-signals columns.
 LIST_COLS = ["posted_et", "hours_ago", "tab", "company", "domain", "employees", "hq_country", "title", "category",
              "job_city", "job_country", "url", "source", "job_id", "note", "same_role_posted_in_n_locations",
-             "ai_summary", "department", "matched_title", "ease_score"]
+             "ai_summary", "department", "matched_title", "ease_score", "hq_region", "role_region"]
 LOG_COLS = ["run_utc", "window_start_utc", "window_end_utc", "companies", "pages_pulled", "pull_errors",
             "postings_in_window", "title_matches", "kept", "new_rows", "list_file", "cost_usd", "balance_usd",
             "status", "message"]
@@ -58,6 +61,30 @@ COMPETITORS = {"accelone", "keyideas infotech private limited", "listo global", 
                "growmotely", "isotalent", "bruntwork", "cloudstaff", "virtual latinos", "tribe wellness sales"}
 LOWCOST = {"PH", "IN", "CO", "AR", "MX", "BR", "PK", "BD", "VN", "ID", "EG", "NG", "KE", "ZA", "RS", "BA", "AL",
            "MK", "XK", "UA", "RO", "BG", "PE", "CL", "EC", "DO", "GT", "HN", "SV", "NI", "CR", "JO", "NP", "LK", "MY"}
+
+# Regions. HQ region comes from the sheet's Region column; these only fill gaps (new rows).
+# Europe means Kosovo-like time zones (EU cadence); Canada stays with the US.
+US_C = {"usa", "us", "united states", "united states of america", "can", "ca", "canada"}
+EU_C = {"gbr", "uk", "gb", "united kingdom", "deu", "de", "germany", "nld", "nl", "netherlands", "fin", "fi", "finland",
+        "swe", "se", "sweden", "irl", "ie", "ireland", "dnk", "dk", "denmark", "nor", "no", "norway", "bel", "be", "belgium",
+        "fra", "fr", "france", "lux", "lu", "luxembourg", "che", "ch", "switzerland", "aut", "at", "austria", "esp", "es",
+        "spain", "ita", "it", "italy", "prt", "pt", "portugal", "pol", "pl", "poland", "are", "ae", "isr", "il", "israel",
+        "cze", "cz", "est", "ee", "lva", "lv", "ltu", "lt", "grc", "gr", "hun", "hu", "rou", "ro", "bgr", "bg", "hrv", "hr",
+        "svn", "si", "svk", "sk", "cyp", "cy", "mlt", "mt", "isl", "is", "imn", "im", "xk", "alb", "al", "srb", "rs"}
+ANZ_C = {"au", "aus", "australia", "nzl", "nz", "new zealand"}
+US_HQ = (r"\b(alabama|alaska|arizona|arkansas|california|colorado|connecticut|delaware|florida|georgia|hawaii|idaho|"
+         r"illinois|indiana|iowa|kansas|kentucky|louisiana|maine|maryland|massachusetts|michigan|minnesota|mississippi|"
+         r"missouri|montana|nebraska|nevada|new hampshire|new jersey|new mexico|new york|north carolina|north dakota|ohio|"
+         r"oklahoma|oregon|pennsylvania|rhode island|south carolina|south dakota|tennessee|texas|utah|vermont|virginia|"
+         r"washington|west virginia|wisconsin|wyoming|united states|usa|canada|ontario|quebec|british columbia|alberta|"
+         r"toronto|vancouver|montreal|san francisco|boston|chicago|austin|seattle|denver|atlanta|miami)\b|"
+         r",\s*(al|ak|az|ar|ca|co|ct|de|fl|ga|hi|id|il|in|ia|ks|ky|la|me|md|ma|mi|mn|ms|mo|mt|ne|nv|nh|nj|nm|ny|nc|nd|oh|"
+         r"ok|or|pa|ri|sc|sd|tn|tx|ut|vt|va|wa|wv|wi|wy|dc)\b")
+EU_HQ = (r"\b(england|scotland|wales|united kingdom|london|manchester|edinburgh|berlin|munich|hamburg|paris|amsterdam|"
+         r"stockholm|helsinki|copenhagen|oslo|dublin|madrid|barcelona|lisbon|zurich|vienna|brussels|warsaw|krakow|prague|"
+         r"milan|germany|france|netherlands|sweden|finland|denmark|norway|ireland|spain|portugal|italy|switzerland|"
+         r"austria|belgium|poland|dubai|tel aviv|israel)\b")
+ANZ_HQ = r"\b(australia|sydney|melbourne|brisbane|perth|adelaide|new zealand|auckland|wellington)\b"
 
 _cost = {"micro": 0}
 _cost_lock = threading.Lock()
@@ -181,7 +208,7 @@ def _rows_to_companies(tab, values, out):
     if not values:
         return
     hdr = [h.strip().lower() for h in values[0]]
-    idx = {k: hdr.index(k) for k in ("account", "domain", "linkedin", "hq", "country", "employees", "industry") if k in hdr}
+    idx = {k: hdr.index(k) for k in ("account", "domain", "linkedin", "hq", "country", "employees", "industry", "region") if k in hdr}
     if "account" not in idx:
         return
     for v in values[1:]:
@@ -189,7 +216,8 @@ def _rows_to_companies(tab, values, out):
         if not g("account"):
             continue
         out.append({"tab": tab, "account": g("account"), "domain": g("domain").lower(), "linkedin": g("linkedin"),
-                    "hq": g("hq"), "country": g("country"), "employees": g("employees"), "industry": g("industry")})
+                    "hq": g("hq"), "country": g("country"), "employees": g("employees"), "industry": g("industry"),
+                    "region": g("region")})
 
 
 def load_accounts(paths):
@@ -216,7 +244,7 @@ def load_accounts(paths):
                     raise ValueError(f"{p}: unrecognized JSON shape")
             else:
                 for r in csv.DictReader(f):
-                    rows.append({k: (r.get(k) or "").strip() for k in ("tab", "account", "domain", "linkedin", "hq", "country", "employees", "industry")})
+                    rows.append({k: (r.get(k) or "").strip() for k in ("tab", "account", "domain", "linkedin", "hq", "country", "employees", "industry", "region")})
                     rows[-1]["domain"] = rows[-1]["domain"].lower()
     seen, out = {}, []
     for r in rows:
@@ -321,6 +349,41 @@ def placeability(title, summary):
     return None
 
 
+def hq_region(c):
+    """US, Europe, ANZ or Unknown. The sheet's Region column wins."""
+    reg = (c.get("region") or "").strip()
+    if reg in ("US", "Europe", "ANZ"):
+        return reg
+    k, h = (c.get("country") or "").strip().lower(), (c.get("hq") or "").lower()
+    if k in ANZ_C or re.search(ANZ_HQ, h):
+        return "ANZ"
+    if k in EU_C:
+        return "Europe"
+    if k in US_C:
+        return "US"
+    if re.search(EU_HQ, h):
+        return "Europe"
+    if re.search(US_HQ, h):
+        return "US"
+    return "Unknown"
+
+
+def role_region(cc):
+    """Where the seat is: US, Europe, ANZ, Offshore (lower-cost country), Other, or blank when the posting gives none."""
+    cc = (cc or "").strip().lower()
+    if not cc:
+        return ""
+    if cc.upper() in LOWCOST:
+        return "Offshore"
+    if cc in ("us", "ca"):
+        return "US"
+    if cc in EU_C:
+        return "Europe"
+    if cc in ANZ_C:
+        return "ANZ"
+    return "Other"
+
+
 def job_id(url):
     m = re.search(r"/jobs/view/(?:[^/]*-)?(\d{6,})", url or "")
     return m.group(1) if m else ""
@@ -400,7 +463,7 @@ def main():
         print("too many pull errors", file=sys.stderr); return 4
 
     prev_urls, prev_pairs = previous_lists()
-    in_window, matched, kept_rows, seen = 0, 0, [], set()
+    in_window, matched, kept_rows, seen, skipped_region = 0, 0, [], set(), set()
     for j in raw:
         dt = parse_ts(j.get("date_posted"))
         if not dt or dt < start or dt > now + timedelta(hours=1):
@@ -420,6 +483,10 @@ def main():
             continue
         if url and url in prev_urls:
             continue
+        hq_reg = hq_region(c)
+        if hq_reg in SKIP_HQ_REGIONS:
+            skipped_region.add(c["account"])
+            continue
         loc = j.get("location") or {}
         country = (loc.get("country_code") or "").upper()
         notes, score = [], tt["base"]
@@ -431,7 +498,9 @@ def main():
         if competitor:
             notes.append("outsourcing competitor: skip")
         if country in LOWCOST:
-            notes.append("already hiring in a lower-cost country")
+            notes.append("already hiring offshore (lower-cost country): quality angle only")
+        if hq_reg == "Unknown":
+            notes.append("HQ region unknown: worked as US unless Blake says otherwise")
         if "remote" in (j.get("title") or "").lower() or "remote" in (j.get("ai_summary") or "").lower():
             score += 1
         prev = prev_pairs.get((c["account"].lower(), (j.get("title") or "").strip().lower()))
@@ -446,7 +515,8 @@ def main():
             "job_city": loc.get("city") or "", "job_country": loc.get("country_code") or "", "url": j.get("url") or "",
             "source": j.get("_src"), "job_id": job_id(j.get("url")), "note": "; ".join(notes),
             "ai_summary": (j.get("ai_summary") or "").replace("\n", " ").strip(),
-            "department": tt["department"], "matched_title": tt["title"], "ease_score": 1 if competitor else max(1, min(10, score))})
+            "department": tt["department"], "matched_title": tt["title"], "ease_score": 1 if competitor else max(1, min(10, score)),
+            "hq_region": hq_reg, "role_region": role_region(country)})
 
     counts = {}
     for r in kept_rows:
@@ -457,7 +527,7 @@ def main():
     kept_rows.sort(key=lambda r: (-int(r["ease_score"]), r["note"] != "", r["company"], r["posted_et"]))
     log.update(postings_in_window=in_window, title_matches=matched, kept=len(kept_rows), new_rows=len(kept_rows))
 
-    list_file = ""
+    list_file, review_file = "", ""
     if kept_rows:
         date = now.astimezone(PRISHTINA).strftime("%Y-%m-%d")
         path = os.path.join("/tmp" if a.dry_run else LISTS, f"{date}.csv")
@@ -469,6 +539,9 @@ def main():
                 w.writeheader()
             w.writerows(kept_rows)
         list_file = os.path.relpath(path, REPO) if not a.dry_run else path
+        rpath = path[:-4] + "-review.md"
+        review.write_review(rpath, kept_rows, now, skipped_region)
+        review_file = os.path.relpath(rpath, REPO) if not a.dry_run else rpath
 
     bal = None
     try:
@@ -480,12 +553,15 @@ def main():
         msg.append(f"{len(errors)} pull errors")
     if bal is not None and bal < LOW_BALANCE_USD:
         msg.append(f"LOW TREG BALANCE ${bal:.2f}: top up")
+    if skipped_region:
+        msg.append(f"skipped {len(skipped_region)} ANZ companies")
     if not kept_rows:
         msg.append("no new matching postings; no list file written")
     write_log(list_file=list_file, balance_usd=f"{bal:.2f}" if bal is not None else "", message="; ".join(msg))
 
     companies_n = len({r["company"] for r in kept_rows})
-    print(json.dumps({"status": "ok", "list_file": list_file, "companies": companies_n, "rows": len(kept_rows),
+    print(json.dumps({"status": "ok", "list_file": list_file, "review_file": review_file,
+                      "companies": companies_n, "rows": len(kept_rows), "skipped_anz": sorted(skipped_region),
                       "window_start_utc": start.isoformat(), "window_end_utc": now.isoformat(),
                       "postings_in_window": in_window, "title_matches": matched, "pull_errors": len(errors),
                       "cost_usd": round(_cost["micro"] / 1e6, 2), "balance_usd": bal}))

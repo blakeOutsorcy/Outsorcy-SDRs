@@ -14,8 +14,8 @@ Claude saves your docs to the repo after every change. If it says a save failed,
 
 ## How a day works
 
-1. **Blake posts the list.** A CSV of companies that just posted a job we can place, in #phase-2-ai-academy.
-2. **Split it.** Anyone says "split today's list". Claude round-robins the companies across the four of you and writes them into accounts/claims.md. A company someone already worked goes back to them.
+1. **Your leads are waiting.** Overnight, a routine finds companies that just posted a job we can place, Blake approves them, and at 08:00 each one gets an attack plan and goes to one of you (split by region, round robin). A company someone already worked goes back to them. Say "what are my hot leads today": your companies, their open roles and a short brief for each.
+2. **Read the full brief.** "research [company]" gives the whole attack plan in plain words. Then find 2 to 4 people on LinkedIn.
 3. **Enroll your claims.** "enroll [company]". Claude picks 2 to 4 people (or asks you to), pulls email, phone and LinkedIn from Apollo, shows you the Leads, and on your yes creates them and puts them in the US or EU call cadence.
 4. **Call.** "start my day" gives you a call sheet built from Zoho. Dial from the cadence step in Zoho, set the Call Result, then tell Claude what happened: "vm on Gil", "Gil picked up, wants info", "booked Gil for Tuesday". Claude updates the Lead, takes do-not-call people out at once, and tells you what to send next.
 5. **Wrap.** "wrap my day". Claude pulls your numbers from Zoho and gives you the scorecard and the Slack post.
@@ -27,7 +27,7 @@ When a cadence ends without a meeting, the company is parked. It comes back to y
 | You say | What happens |
 | --- | --- |
 | start my day | latest coaching line, call sheet from Zoho, 10:00 Slack post |
-| split today's list | today's CSV split across the four of you |
+| what are my hot leads today | today's companies, roles and a short brief each |
 | enroll [company] | Leads created and enrolled, after checks |
 | vm on X / X picked up / booked X | Zoho updated, next touch drafted |
 | what do I send after this call | LinkedIn request, Email 1 or 2, break-up |

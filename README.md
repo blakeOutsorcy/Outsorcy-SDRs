@@ -6,10 +6,10 @@ New here? Read `claude/intern-guide.md` first. Claude reads `CLAUDE.md` automati
 
 ```
 CLAUDE.md                  Claude's instructions for this project
-.claude/skills/            split-list, enroll, start-my-day, log-call, wrap-my-day, manager-digest
+.claude/skills/            hot-leads, enroll, start-my-day, log-call, wrap-my-day, split-list, manager-digest, outsorcy-account-attack-plan
 accounts/claims.md         who owns which company (the only ownership list)
 accounts/suppression.md    companies nobody touches
-lists/                     daily job-post CSVs and each day's split
+lists/                     daily job-post CSVs, Blake's review of each, and each day's split
 claude/                    playbook, intern guide, Zoho reference, Zoho dashboard
 interns/<name>/            daily-log.md, prospect-notes.md, coaching.md
 archive/                   Oct 2026 master list and old per-intern account lists
