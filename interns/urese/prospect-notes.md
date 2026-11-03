@@ -47,3 +47,14 @@ One section per company. Claude adds research here when Urese asks; Urese logs t
   - Cadence Nov 2 (Nicole): E1 signal: CSM role in California listed as remote, open since September | Held for E2: Natasha's team carries the load while the seats are open | E1 sent by: Urese
   - Cadence Nov 2 (Natasha): E1 signal: two CSM openings on her team since early September | Held for E2: district count growing with the 2026 deployments | E1 sent by: Urese
   - Cadence Nov 2 (Gaurav): E1 signal: hiring remote across the US (CSM, drafting, project engineering, interconnection) | Held for E2: $225M raised, headcount flat | E1 sent by: Urese
+
+## Sagacity
+
+  - sagacitysolutions.co.uk, London. Plan on the Living Account List (Nov 2). Europe, High-Touch EU Calls.
+  - Trigger: Account Manager, London, posted Oct 30 (https://uk.linkedin.com/jobs/view/account-manager-at-sagacity-4485372155). Accenture acquired Sagacity Oct 13: ask who owns the hire now.
+  - People (Urese, LinkedIn, Nov 3): Sam J. (Client Services Director, main target, linkedin.com/in/sam-j-75713b2a/ to confirm), Dean Standing (CRO, confirmed still at Sagacity), Harry Dougall (co-founder, CFO). Sohel Aziz is Accenture Song UK and Ireland, not Sagacity: dropped, manager call.
+  - Nov 3 created and enrolled in High-Touch EU Calls_10/2026 (after the 12:00 cut-off, Urese's call): Dean Standing 6673507000007942001, Harry Dougall 6673507000007942002.
+  - Chase on LinkedIn today: email, phone and LinkedIn URL missing for Dean and Harry (Apollo not connected). No phone means the EU call cannot be dialed; cancel and close it out the same day if still no number.
+  - Sam J.: not created, last name needed.
+  - Nov 3 LinkedIn: invite sent to Harry.
+  - Zoho status: 2 Leads, Not Contacted.
