@@ -54,7 +54,9 @@ One section per company. Claude adds research here when Urese asks; Urese logs t
   - Trigger: Account Manager, London, posted Oct 30 (https://uk.linkedin.com/jobs/view/account-manager-at-sagacity-4485372155). Accenture acquired Sagacity Oct 13: ask who owns the hire now.
   - People (Urese, LinkedIn, Nov 3): Sam J. (Client Services Director, main target, linkedin.com/in/sam-j-75713b2a/ to confirm), Dean Standing (CRO, confirmed still at Sagacity), Harry Dougall (co-founder, CFO). Sohel Aziz is Accenture Song UK and Ireland, not Sagacity: dropped, manager call.
   - Nov 3 created and enrolled in High-Touch EU Calls_10/2026 (after the 12:00 cut-off, Urese's call): Dean Standing 6673507000007942001, Harry Dougall 6673507000007942002.
-  - Chase on LinkedIn today: email, phone and LinkedIn URL missing for Dean and Harry (Apollo not connected). No phone means the EU call cannot be dialed; cancel and close it out the same day if still no number.
-  - Nov 3 created and enrolled in High-Touch EU Calls_10/2026: Sam Jayes (Client Services Director) 6673507000007945003. Email and phone missing; chase today.
+  - Nov 3 created and enrolled in High-Touch EU Calls_10/2026: Sam Jayes (Client Services Director) 6673507000007945003.
   - Nov 3 LinkedIn: invite sent to Harry.
-  - Zoho status: 3 Leads, Not Contacted.
+  - Nov 3 13:49 Apollo (Travis's account, Travis approved): emails, mobiles and LinkedIn added for all three. Sam's LinkedIn corrected to sam-jayes-75713b2a.
+  - DNC registry: Harry Dougall, email and LinkedIn only. Un-enrolled from EU Calls Nov 3, Day 1 call cancelled. Never in a call cadence.
+  - In cadence: Sam Jayes and Dean Standing, EU Day 1 Call 1 open today.
+  - Zoho status: 3 Leads, Not Contacted (2 in EU Calls).
