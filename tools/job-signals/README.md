@@ -71,7 +71,7 @@ A review not marked reviewed by the build is auto-approved: every company except
 You are running the automated job-signals gather for Travis Bennett (travis@outsorcy.com), a manager. This satisfies the CLAUDE.md "who am I working with" check. There is no intern in this session. Travis's Slack user id is U0BTEKB679V; every DM below goes there (`slack_send_message` with that id as the channel).
 
 1. `git checkout main && git pull --rebase origin main`.
-2. `TREG_TOKEN` must be in the environment. If it is not set, find another environment variable whose name contains TREG (`env | cut -d= -f1 | grep -i treg`, names only) and export its value as TREG_TOKEN. Never print, write or commit the token. None at all: run nothing, DM Travis "Gather failed: TREG_TOKEN is not set in the Outsorcy cloud environment. Add it under the environment's settings." and stop.
+2. treg auth comes from the Outsorcy environment's network secret for `treg.to` (the agent proxy adds it; the session never sees the key). Nothing to export. If `TREG_TOKEN` happens to be set it is sent too. Never print, write or commit a token.
 3. Read the Living Account List with the Google Sheets connector. First `get_spreadsheet` with `fields` `["sheets.properties.title"]` for the tab names, then one call: `get_spreadsheet` on `1xaVHsEaLbnMeZRzF9-ppMimbVvRIsFUWw92iqO8XPb8`, `includeGridData` true, `fields` `["sheets.properties.title", "sheets.data.rowData.values.formattedValue"]`, range `'<tab>'!A1:U2000` for every tab, including "EU job signals" once it exists (A to U covers every tab's Region column). The result is saved to a file; pass that path to the script, never retype rows. Connector unavailable or the call fails: stop, run nothing, DM Travis "Gather failed: Google Sheets connector unavailable."
 4. `python3 tools/job-signals/signals.py --accounts <that file> --eu-companies-out /tmp/eu_new_companies.csv`. The last line is a JSON summary. The CSV (never committed: company list) holds every fit new EU company found.
 4b. Append the CSV's rows (header excluded) to the "EU job signals" tab: read `'EU job signals'!A:C` for the next empty row and the Domains and LinkedIn URLs already there, drop rows already on the tab, then write the rest with one `update_values` call (columns Account to Added, in the CSV's order). Re-read the range to check. Write nothing else on the sheet.
@@ -79,7 +79,7 @@ You are running the automated job-signals gather for Travis Bennett (travis@outs
 6. Slack DM Travis, plain text, no emoji:
    - With a list: "Job review ready: <N> companies (<a> US, <b> Europe, <e> new EU, <c> unknown) for the <build_day from the summary> morning build (22:47 PT tonight). Not reviewed by then, all are approved except suppressed or closed. Review: https://github.com/blakeOutsorcy/Outsorcy-SDRs/edit/main/lists/<date>-review.md". Add one line for any earlier review that `python3 tools/job-signals/review.py pending` shows as still waiting.
    - No new postings: "No new job posts since <window start, PT>. Nothing to review."
-   - Exit code 3 (treg auth failed): commit the run log, push, and DM "Gather failed: the treg key needs renewing in the Outsorcy cloud environment."
+   - Exit code 3 (treg auth failed): commit the run log, push, and DM "Gather failed: treg rejected the key. Check the treg.to network secret on the Outsorcy cloud environment (host must be exactly treg.to)."
 7. Do not run split-list, plan any company, write to Zoho or edit any other file. The only sheet write is step 4b.
 
 ## Build runbook (what the Monday and Thursday 07:47 Prishtina task does)
@@ -119,7 +119,7 @@ You are running the automated morning build for Travis Bennett (travis@outsorcy.
 ## Running it by hand
 
 ```
-TREG_TOKEN=... python3 tools/job-signals/signals.py --accounts <sheet export file> --since-hours 24 --dry-run
+python3 tools/job-signals/signals.py --accounts <sheet export file> --since-hours 24 --dry-run
 ```
 
 `--dry-run` writes the list and review file to /tmp and skips the run log. `--accounts` also accepts a CSV with columns tab,account,domain,linkedin,hq,country,employees,industry,region.

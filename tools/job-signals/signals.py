@@ -11,7 +11,7 @@ format split-list expects, plus lists/YYYY-MM-DD-review.md for Travis's review
 (review.py). Appends one row to run-log.csv per run.
 
 Usage (from the repo root):
-  TREG_TOKEN=... python3 tools/job-signals/signals.py --accounts <file> [--accounts <file> ...]
+  [TREG_TOKEN=...] python3 tools/job-signals/signals.py --accounts <file> [--accounts <file> ...]
       [--since-hours N] [--dry-run]
 
 --accounts takes the Living Account List as either a CSV with columns
@@ -115,52 +115,80 @@ class AuthError(Exception):
 
 
 # ---------------------------------------------------------------- treg
-def treg_call(endpoint, body, retries=4):
-    req_body = json.dumps(body).encode()
-    for attempt in range(retries):
-        req = urllib.request.Request(f"https://treg.to/call/{endpoint}", data=req_body, method="POST",
-                                     headers={"X-Treg-Token": TOKEN, "Content-Type": "application/json"})
+def _mcp_headers():
+    """treg's /mcp/ route takes the key as a Bearer token. In the cloud environment the agent proxy
+    adds it (network secret for treg.to), so TREG_TOKEN may be unset; when set, it is sent too."""
+    h = {"Content-Type": "application/json", "Accept": "application/json, text/event-stream"}
+    if TOKEN:
+        h["Authorization"] = "Bearer " + TOKEN
+    return h
+
+
+def _mcp(tool, arguments, timeout=90):
+    """One tools/call on treg's MCP route. Returns the tool's JSON result. Raises AuthError on 401/403
+    and urllib errors otherwise."""
+    body = json.dumps({"jsonrpc": "2.0", "id": 1, "method": "tools/call",
+                       "params": {"name": tool, "arguments": arguments}}).encode()
+    req = urllib.request.Request("https://treg.to/mcp/", data=body, headers=_mcp_headers())
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            txt = r.read().decode()
+    except urllib.error.HTTPError as e:
+        if e.code in (401, 403):
+            raise AuthError(f"treg HTTP {e.code}: {e.read().decode(errors='replace')[:400]}")
+        raise
+    if not txt.lstrip().startswith("{"):
+        txt = "\n".join(l[5:].strip() for l in txt.splitlines() if l.startswith("data:"))
+    res = json.loads(txt)
+    if "error" in res:
+        raise RuntimeError(f"treg MCP error: {json.dumps(res['error'])[:400]}")
+    res = res.get("result", {})
+    if res.get("structuredContent"):
+        return res["structuredContent"]
+    for c in res.get("content", []):
         try:
-            with urllib.request.urlopen(req, timeout=90) as r:
-                c = r.headers.get("X-Treg-Cost-Micro")
-                if c:
-                    with _cost_lock:
-                        _cost["micro"] += int(float(c))
-                return json.loads(r.read().decode()), None
-        except urllib.error.HTTPError as e:
-            txt = e.read().decode(errors="replace")[:400]
-            if e.code in (401, 403) or "invalid or expired" in txt:
-                raise AuthError(f"treg HTTP {e.code}: {txt}")
-            if e.code in (429, 500, 502, 503, 504) and attempt < retries - 1:
-                time.sleep(2 * (attempt + 1)); continue
-            return None, f"HTTP {e.code}: {txt}"
+            return json.loads(c.get("text", "{}"))
+        except ValueError:
+            return {"error": c.get("text", "")[:400]}
+    return {}
+
+
+def treg_call(endpoint, body, retries=4):
+    """A catalog call through treg's MCP `call` tool. Returns (provider body, None) or (None, error)."""
+    for attempt in range(retries):
+        try:
+            d = _mcp("call", {"endpoint_id": endpoint, "params": body})
+        except AuthError:
+            raise
         except Exception as e:
             if attempt < retries - 1:
                 time.sleep(2 * (attempt + 1)); continue
             return None, f"ERR {e}"
+        status = d.get("status")
+        if d.get("cost_usd"):
+            with _cost_lock:
+                _cost["micro"] += int(round(float(d["cost_usd"]) * 1e6))
+        if status in (401, 403) or "invalid or expired" in json.dumps(d.get("body") or d.get("detail") or "")[:400]:
+            raise AuthError(f"treg {status}: {json.dumps(d.get('body') or d.get('detail'))[:400]}")
+        if status == 200 and d.get("body") is not None:
+            return d["body"], None
+        if (status in (429, 500, 502, 503, 504) or d.get("retry_after")) and attempt < retries - 1:
+            time.sleep(max(2 * (attempt + 1), float(d.get("retry_after") or 0))); continue
+        return None, f"HTTP {status}: {json.dumps(d.get('error') or d.get('detail') or d.get('body'))[:400]}"
     return None, "retries exhausted"
 
 
 def treg_balance():
-    body = json.dumps({"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {"name": "balance", "arguments": {}}}).encode()
-    req = urllib.request.Request("https://treg.to/mcp/", data=body, headers={
-        "Authorization": "Bearer " + TOKEN, "Content-Type": "application/json", "Accept": "application/json, text/event-stream"})
     try:
-        with urllib.request.urlopen(req, timeout=30) as r:
-            txt = r.read().decode()
-        if not txt.lstrip().startswith("{"):
-            txt = "\n".join(l[5:].strip() for l in txt.splitlines() if l.startswith("data:"))
-        res = json.loads(txt).get("result", {})
-        for c in res.get("content", []):
-            d = json.loads(c.get("text", "{}"))
-            if "balance_usd" in d:
-                return float(d["balance_usd"])
-            if "error" in d:
-                raise AuthError(d.get("error"))
+        d = _mcp("balance", {}, timeout=30)
     except AuthError:
         raise
     except Exception:
         return None
+    if "balance_usd" in d:
+        return float(d["balance_usd"])
+    if "error" in d:
+        raise AuthError(d.get("error"))
     return None
 
 
@@ -517,9 +545,11 @@ def main():
                 w.writeheader()
             w.writerow({k: log.get(k, "") for k in LOG_COLS})
 
-    if not TOKEN:
-        write_log(status="error", message="TREG_TOKEN is not set")
-        print("TREG_TOKEN is not set", file=sys.stderr); return 3
+    try:
+        treg_balance()   # auth check: proxy network secret for treg.to, or TREG_TOKEN
+    except AuthError as e:
+        write_log(status="error", message=f"treg auth failed: {e}")
+        print(f"treg auth failed: {e}", file=sys.stderr); return 3
     try:
         companies = load_accounts(a.accounts)
     except Exception as e:
