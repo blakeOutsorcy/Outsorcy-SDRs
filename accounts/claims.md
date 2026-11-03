@@ -131,7 +131,7 @@ Backfilled Oct 29, 2026 from Zoho Lead ownership. Leads = number of intern-owned
 | Healthcare Fraud Shield | claimed | 0 | Nov 2 | lists/2026-11-02.csv | Customer Support Specialist, Implementation Specialist, Chesterfield. |
 | Allworth Airline Advisors (Formerly RAA) | claimed | 0 | Nov 2 | lists/2026-11-02.csv | Branch Office Administrator, Norwood. |
 | Expression | claimed | 0 | Nov 2 | lists/2026-11-02.csv | System Administrator (Azure), Washington. |
-| Sagacity | active | 2 | Nov 2 | lists/2026-11-02.csv | Account Manager, London. Europe bucket, EU cadence. Dean Standing and Harry Dougall in High-Touch EU Calls Nov 3, no phone or email yet (Apollo not connected). Sam J. (Client Services Director) to add once last name found. |
+| Sagacity | active | 3 | Nov 2 | lists/2026-11-02.csv | Account Manager, London. Europe bucket, EU cadence. Sam Jayes, Dean Standing and Harry Dougall in High-Touch EU Calls Nov 3, no phone or email yet (Apollo not connected). |
 | Highland Electric Fleets | active | 4 | Nov 2 | self-claimed | highlandfleets.com, Beverly, MA. Nicole Lewandowski and Natasha Lawrence in High-Touch US Calls Nov 2; Evelyn Krasnow and Gaurav Dubey DNC, email and LinkedIn only. CSM (remote), Senior Brand Manager, Growth Marketing. Raise at the 16:00 standup. Attack plan: https://claude.ai/artifact/WCBHPHTkgwhB5Ly3t5Y62a |
 
 ## Vullnet

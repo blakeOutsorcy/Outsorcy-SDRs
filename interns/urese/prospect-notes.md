@@ -55,6 +55,6 @@ One section per company. Claude adds research here when Urese asks; Urese logs t
   - People (Urese, LinkedIn, Nov 3): Sam J. (Client Services Director, main target, linkedin.com/in/sam-j-75713b2a/ to confirm), Dean Standing (CRO, confirmed still at Sagacity), Harry Dougall (co-founder, CFO). Sohel Aziz is Accenture Song UK and Ireland, not Sagacity: dropped, manager call.
   - Nov 3 created and enrolled in High-Touch EU Calls_10/2026 (after the 12:00 cut-off, Urese's call): Dean Standing 6673507000007942001, Harry Dougall 6673507000007942002.
   - Chase on LinkedIn today: email, phone and LinkedIn URL missing for Dean and Harry (Apollo not connected). No phone means the EU call cannot be dialed; cancel and close it out the same day if still no number.
-  - Sam J.: not created, last name needed.
+  - Nov 3 created and enrolled in High-Touch EU Calls_10/2026: Sam Jayes (Client Services Director) 6673507000007945003. Email and phone missing; chase today.
   - Nov 3 LinkedIn: invite sent to Harry.
-  - Zoho status: 2 Leads, Not Contacted.
+  - Zoho status: 3 Leads, Not Contacted.
