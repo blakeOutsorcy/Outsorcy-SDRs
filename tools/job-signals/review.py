@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""Blake's evening review of the daily job-signals list.
+"""Travis's review of the job-signals list (gathered Sunday and Wednesday evenings).
 
-signals.py calls write_review() to write lists/YYYY-MM-DD-review.md next to the day's CSV:
-one line per company, grouped by HQ region, with every posting under it. Blake ticks the
-companies to work and marks the file reviewed. The morning build reads it back with:
+signals.py calls write_review() to write lists/YYYY-MM-DD-review.md next to the CSV, dated for
+its build (Monday or Thursday 08:00 Prishtina): one line per company, grouped by HQ region, with
+every posting under it. Travis ticks the companies to work and marks the file reviewed. A file
+not marked reviewed by its build is auto-approved: every company except suppressed or closed
+ones. The morning build reads it back with:
 
   python3 tools/job-signals/review.py pending
-      Reviewed files from the last 7 days that have no split yet, as JSON: approved companies
-      (with their postings) and skipped ones (with Blake's reason). Read only.
+      Files from the last 7 days that have no split yet, as JSON: approved companies (with
+      their postings) and skipped ones (with the reason). Read only.
 
   python3 tools/job-signals/review.py log YYYY-MM-DD
       Appends that day's decisions to review-log.csv (once per date). This log is what we
@@ -23,10 +25,12 @@ LISTS = os.path.join(REPO, "lists")
 CLAIMS = os.path.join(REPO, "accounts", "claims.md")
 SUPPRESSION = os.path.join(REPO, "accounts", "suppression.md")
 REVIEW_LOG = os.path.join(HERE, "review-log.csv")
-MT = ZoneInfo("America/Denver")
+PT = ZoneInfo("America/Los_Angeles")
 ET = ZoneInfo("America/New_York")
 PRISHTINA = ZoneInfo("Europe/Belgrade")
 MAX_AGE_DAYS = 7
+BUILD_DAYS = (0, 3)   # Monday and Thursday
+AUTO_REASON = "auto-approved: not reviewed by the build"
 REGIONS = ["US", "Europe", "Europe new", "Unknown"]
 GROUP_HEAD = {"Europe new": "Europe, new companies not on the Account List"}
 LOG_COLS = ["list_date", "company", "domain", "hq_region", "decision", "reason", "best_ease", "departments",
@@ -89,12 +93,12 @@ def _companies(rows):
 
 
 def next_build(now):
-    """The first weekday 08:00 Prishtina after now: when this list gets planned and split."""
+    """The first Monday or Thursday 08:00 Prishtina after now: when this list gets planned and split."""
     t = now.astimezone(PRISHTINA)
     b = t.replace(hour=8, minute=0, second=0, microsecond=0)
     if b <= t:
         b += timedelta(days=1)
-    while b.weekday() >= 5:
+    while b.weekday() not in BUILD_DAYS:
         b += timedelta(days=1)
     return b
 
@@ -117,28 +121,28 @@ def write_review(path, rows, now, skipped_anz=()):
         if posts[0].get("tab") == "EU discovery":
             reg = "Europe new"
         groups.setdefault(reg, []).append(posts)
-    stamp = now.astimezone(MT).strftime("%H:%M MT")
+    stamp = now.astimezone(PT).strftime("%H:%M PT")
     lines = []
     exists = os.path.exists(path)
     if exists:
         text = open(path, encoding="utf-8").read()
         if REVIEWED_RX.search(text) and REVIEWED_RX.search(text).group(1).lower() == "x":
-            # New companies after Blake reviewed: hold the file until he looks again.
+            # New companies after Travis reviewed: hold the file until he looks again.
             text = REVIEWED_RX.sub("Reviewed: [ ]", text, count=1)
             open(path, "w", encoding="utf-8").write(text)
             lines += [f"New companies added at {stamp} after the review. Tick them, then mark the file reviewed again.", ""]
     if not exists:
-        b, g = next_build(now), now.astimezone(MT)
+        b, g = next_build(now), now.astimezone(PT)
         lines += [f"# Review: jobs for the {b.strftime('%a %b')} {b.day} morning build", "",
-                  f"Gathered {g.strftime('%a %b')} {g.day}, {g.strftime('%H:%M')} MT "
+                  f"Gathered {g.strftime('%a %b')} {g.day}, {g.strftime('%H:%M')} PT "
                   f"({now.astimezone(PRISHTINA).strftime('%H:%M')} Prishtina). "
-                  f"Built {b.strftime('%a %b')} {b.day}, 08:00 Prishtina ({b.astimezone(MT).strftime('%a %H:%M')} MT).", "",
+                  f"Built {b.strftime('%a %b')} {b.day}, 08:00 Prishtina ({b.astimezone(PT).strftime('%a %H:%M')} PT).", "",
                   "How to review (edit this file on GitHub, pencil icon):",
                   "  - Change `[ ]` to `[x]` for each company the interns should work.",
                   "  - Leave `[ ]` to skip it. A few words after `why:` help us learn your rules.",
                   "  - Then change the line below to `Reviewed: [x]` and commit to main.",
-                  "  - The 08:00 Prishtina build (midnight MT) plans and splits only reviewed files. "
-                  "Not reviewed by then: it waits for the next morning.",
+                  "  - Not marked reviewed by the 08:00 Prishtina build: every company is approved "
+                  "except suppressed or closed ones, so the interns always get accounts.",
                   "  - Owner `new` or `re-post` comes from accounts/claims.md. Zoho owners are checked at the build.",
                   "  - \"Europe, new companies\" are not on the Account List yet. Ticked ones are added to its "
                   "\"EU job signals\" tab at the build, then planned and split like the rest.", "",
@@ -196,6 +200,20 @@ def parse_review(path):
     return reviewed, out
 
 
+def decide(entries, reviewed, claims=None, suppressed=None):
+    """Set approved and reason on each entry. Reviewed: Travis's ticks stand. Not reviewed by the
+    build: auto-approve everything except suppressed or closed companies."""
+    if reviewed:
+        return entries
+    claims = load_claims() if claims is None else claims
+    suppressed = load_suppressed() if suppressed is None else suppressed
+    for e in entries:
+        own = owner_text(e["company"], claims, suppressed)
+        e["approved"] = not (own == "suppressed" or own.startswith("closed"))
+        e["reason"] = AUTO_REASON if e["approved"] else f"auto-skipped: {own}"
+    return entries
+
+
 def _list_rows(date):
     p = os.path.join(LISTS, f"{date}.csv")
     if not os.path.exists(p):
@@ -225,11 +243,13 @@ def pending():
         item = {"list_date": date, "review_file": f"lists/{fn}", "reviewed": reviewed, "age_days": age}
         if age > MAX_AGE_DAYS:
             item["status"] = "expired (older than 7 days, not split)"
-        elif not reviewed:
-            item["status"] = "waiting for Blake's review"
+        elif not reviewed and date > today.isoformat():
+            item["status"] = "waiting for Travis's review"
         else:
             rows = _list_rows(date)
             item["status"] = "ready"
+            item["auto_approved"] = not reviewed
+            decide(entries, reviewed)
             item["approved"] = []
             for e in entries:
                 if not e["approved"]:
@@ -257,11 +277,13 @@ def log(date):
                 print(f"{date} already logged")
                 return 0
     reviewed, entries = parse_review(os.path.join(LISTS, f"{date}-review.md"))
-    if not reviewed:
-        print(f"{date} is not reviewed yet", file=sys.stderr)
+    today = datetime.now(timezone.utc).astimezone(PRISHTINA).date().isoformat()
+    if not reviewed and date > today:
+        print(f"{date} is not reviewed yet and its build has not come", file=sys.stderr)
         return 1
     rows = _list_rows(date)
     claims, suppressed = load_claims(), load_suppressed()
+    decide(entries, reviewed, claims, suppressed)
     new = not os.path.exists(REVIEW_LOG)
     with open(REVIEW_LOG, "a", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=LOG_COLS)

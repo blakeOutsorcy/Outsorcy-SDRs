@@ -5,7 +5,7 @@ This is the single playbook. Edit this doc, not copies. Updated Oct 29, 2026 for
 ## Cohort
 
   - Interns: Vullnet, Urese, Diar, Liza. Based in Prishtina, Kosovo. Program started Monday Oct 5, 2026 after sales and AI training; Monday was a remote prep day, live dials start Tuesday Oct 6.
-  - Managers: Blake Danielson (Denver, MT) and Travis Bennett (US). Online from 16:00 Prishtina. Olivia Moran posts the day's assignments in Slack and collects an end-of-day summary by 20:00 CET. The interns' first half of the day runs without a US manager online.
+  - Manager: Travis Bennett (US, Pacific time). Online from 16:00 Prishtina. Olivia Moran posts the day's assignments in Slack and collects an end-of-day summary by 20:00 CET. The interns' first half of the day runs without a US manager online.
   - Stack: Zoho CRM (telephony, cadences, logging), HeyReach (LinkedIn), Clay (lists), Slack (accountability), mock call platform (practice). Every intern has a dialer seat.
 
 ## What Outsorcy sells (the pitch the interns carry)
@@ -25,7 +25,7 @@ Outsorcy places dedicated full-time people, sourced from its Prishtina office, a
   - 12:00 to 15:00 EU calls, LinkedIn and email touches from the high-touch skill.
   - 13:00 to 13:45 lunch.
   - 15:00 to 16:00 enroll US Leads, first US call block (US calls from 9:00 ET).
-  - 16:00 to 16:20 standup with Blake and Travis.
+  - 16:00 to 16:20 standup with Travis.
   - 16:20 to 19:00 US call block 2 (Eastern and Central). The day's new list usually lands in this window; split it before you leave or first thing tomorrow.
   - 19:00 wrap my day: scorecard from Zoho, Slack post.
 
@@ -55,7 +55,7 @@ Pulled from Zoho by wrap-my-day.
 
 ## Mock call rubric (score 1 to 5 on each)
 
-Opener, permission, relevance hook, problem question, value statement, objection handling, close, tone and pace. Average the eight. Gate: 3.5 average on the opener scenario before first live dial. Scenarios in order: cold open and permission; gatekeeper and voicemail; the top two real objections heard that week; closing a hesitant prospect; certification with a random persona, graded by Blake or Travis on Friday.
+Opener, permission, relevance hook, problem question, value statement, objection handling, close, tone and pace. Average the eight. Gate: 3.5 average on the opener scenario before first live dial. Scenarios in order: cold open and permission; gatekeeper and voicemail; the top two real objections heard that week; closing a hesitant prospect; certification with a random persona, graded by Travis on Friday.
 
 ## What counts as a meeting
 
@@ -76,7 +76,7 @@ Company, contact, title, LinkedIn; role and headcount they need; trigger (why no
   - DNC: a registry-flagged number never goes into a call cadence; a person who says do not call is Not Qualified and out the same day.
   - Capacity: at most 45 Leads in a cadence, no new enrollments over 20 overdue calls, at most 15 new Leads a day.
   - When a cadence ends without a meeting, the company is parked. It comes back to you when it posts again.
-  - Never create Deals, never delete records, never change another user's records, never enroll anyone from the suppression list. A booked meeting is a Note on the Lead (handoff shape above) plus a Slack post; Blake or Travis creates the opportunity.
+  - Never create Deals, never delete records, never change another user's records, never enroll anyone from the suppression list. A booked meeting is a Note on the Lead (handoff shape above) plus a Slack post; Travis creates the opportunity.
 
 ## Two Slack posts per intern per day (in #phase-2-ai-academy)
 
@@ -91,4 +91,4 @@ Claude writes them, you post them. Olivia's end-of-day summary is separate unles
   - Suppression: never touch current clients, open deals, ambassador leads, Revenue Inc targets, or anything the core team is working. Check Zoho before adding an account.
   - US calling hours only, DNC scrubbed.
   - Draft outreach in the Outsorcy house voice: short, direct, specific to the prospect, no fluff, no exclamation marks, no em dashes.
-  - Interns never send on a manager's behalf and never promise pricing. Pricing conversations go to Blake or Travis.
+  - Interns never send on a manager's behalf and never promise pricing. Pricing conversations go to Travis.

@@ -11,7 +11,7 @@ Read only, except for the daily log. Identify the intern first (CLAUDE.md). Use 
 
   1. The newest dated line in interns/<name>/coaching.md. Read it out first.
   2. Zoho open calls for the intern (Overdue and Scheduled), with the Lead for each.
-  3. The intern's claims with status claimed (not yet enrolled) from accounts/claims.md, and whether today's split is in (lists/<today>-split.md, written by the 08:00 morning build). If it is, offer "what are my hot leads today" (hot-leads). If not, say the build has not landed; never split the list yourself.
+  3. The intern's claims with status claimed (not yet enrolled) from accounts/claims.md, and whether today's split is in (lists/<today>-split.md, written by the Monday and Thursday 08:00 morning build). If it is, offer "what are my hot leads today" (hot-leads). On a Monday or Thursday without one, say the build has not landed; other days there is no build. Never split the list yourself.
   4. Any Lead of theirs with a call-back Note due today.
 
 ## Build the call sheet

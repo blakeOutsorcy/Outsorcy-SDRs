@@ -7,12 +7,13 @@ description: Show an intern the companies the morning build gave them today, eac
 
 Read only. No commits, no research, no credits. Identify the intern first (CLAUDE.md). Use Prishtina time.
 
-The morning build (08:00 Prishtina) plans each approved company with outsorcy-account-attack-plan and splits them in lists/<today>-split.md. This skill shows the intern their part of it. Interns never plan a company themselves.
+The morning build (Monday and Thursday, 08:00 Prishtina) plans each approved company with outsorcy-account-attack-plan and splits them in lists/<today>-split.md. This skill shows the intern their part of it. Interns never plan a company themselves.
 
 ## 1. Find today's leads
 
   - Read lists/<today>-split.md (Prishtina date). Take only the intern's table.
-  - No file yet: before 09:00, say the morning build is still running and to ask again shortly. After 09:00, say nothing was split today (Blake may not have reviewed yesterday's list) and go to the leftovers below.
+  - Tuesday, Wednesday or Friday: there is no build today. Say new companies come Monday and Thursday, show the intern's table from the latest split if it is from this week, and go to the leftovers below.
+  - Monday or Thursday, no file yet: before 10:00, say the morning build is still running and to ask again shortly. After 10:00, say nothing was split today (no new postings, or the build failed; Travis has been told) and go to the leftovers below.
   - Leftovers: grep the intern's section of accounts/claims.md for status claimed with Leads 0 from earlier days. List them under "Still to enroll", one line each, oldest first.
 
 ## 2. One block per company
@@ -28,7 +29,7 @@ For each company:
     - Why us, now: the Lead angle in plain words, one or two sentences.
     - Watch out: the main line from Don't say or Objection & counter.
   - Plan date empty, or the split says "plan pending": "Plan comes with the next morning build. Start with the roles." Do not research the company yourself.
-  - The sheet cannot be read (no Google Sheets connector, or no access): give the roles only and say once, at the end, "Ask Blake for view access to the Living Account List and the Google Sheets connector to see the briefs."
+  - The sheet cannot be read (no Google Sheets connector, or no access): give the roles only and say once, at the end, "Ask Travis for view access to the Living Account List and the Google Sheets connector to see the briefs."
 
 ## 3. Hand off
 

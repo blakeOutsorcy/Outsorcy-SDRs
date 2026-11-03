@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""Daily job-signals list for the intern SDR program.
+"""Job-signals list for the intern SDR program (gathered Sunday and Wednesday).
 
 Finds new job postings at the companies on the Living Account List that match the
 target titles in target-titles.csv, plus (EU discovery) target-title postings at companies
 headquartered in high-cost European countries that are not on the list yet. Drops senior
 and hard-to-place roles, scores the
 rest for ease of placement, and writes lists/YYYY-MM-DD.csv (the date of the next
-08:00 Prishtina build, i.e. the day the interns work it) in the
-format split-list expects, plus lists/YYYY-MM-DD-review.md for Blake's evening review
+Monday or Thursday 08:00 Prishtina build, the day the interns work it) in the
+format split-list expects, plus lists/YYYY-MM-DD-review.md for Travis's review
 (review.py). Appends one row to run-log.csv per run.
 
 Usage (from the repo root):
@@ -611,7 +611,7 @@ def main():
         if country in LOWCOST:
             notes.append("already hiring offshore (lower-cost country): quality angle only")
         if hq_reg == "Unknown":
-            notes.append("HQ region unknown: worked as US unless Blake says otherwise")
+            notes.append("HQ region unknown: worked as US unless Travis says otherwise")
         if eu_new:
             notes.append(f"new company, not on the Account List ({c['industry'] or 'industry unknown'})")
         if "remote" in (j.get("title") or "").lower() or "remote" in (j.get("ai_summary") or "").lower():

@@ -1,6 +1,6 @@
 # How this project works (read this first)
 
-Everyone in the intern SDR program works in this one GitHub repo, Outsorcy-SDRs, through Claude Code: Vullnet, Urese, Diar, Liza, and the managers Blake Danielson and Travis Bennett.
+Everyone in the intern SDR program works in this one GitHub repo, Outsorcy-SDRs, through Claude Code: Vullnet, Urese, Diar, Liza, and the manager, Travis Bennett.
 
 Updated Oct 29, 2026. The fixed account lists from week one are retired. Your work now comes from the daily job-post list, and Zoho is where your Leads, cadences and calls live. Claude reads Zoho for you, so you do not keep lists by hand.
 
@@ -14,8 +14,8 @@ Claude saves your docs to the repo after every change. If it says a save failed,
 
 ## How a day works
 
-1. **Your leads are waiting.** Overnight, a routine finds companies that just posted a job we can place, Blake approves them, and at 08:00 each one gets an attack plan and goes to one of you (split by region, round robin). A company someone already worked goes back to them. Say "what are my hot leads today": your companies, their open roles and a short brief for each.
-2. **Read the full brief.** "research [company]" gives the whole attack plan in plain words, read from the sheet, so it costs you almost nothing. Then find 2 to 4 people on LinkedIn. Found a company yourself that has no plan? Ask Blake or Travis to plan it; don't research it yourself.
+1. **Your leads are waiting.** Twice a week, a routine finds companies that just posted a job we can place, Travis approves them, and at 08:00 on Monday and Thursday each one gets an attack plan and goes to one of you (split by region, round robin). A company someone already worked goes back to them. Say "what are my hot leads today": your companies, their open roles and a short brief for each.
+2. **Read the full brief.** "research [company]" gives the whole attack plan in plain words, read from the sheet, so it costs you almost nothing. Then find 2 to 4 people on LinkedIn. Found a company yourself that has no plan? Ask Travis to plan it; don't research it yourself.
 3. **Enroll your claims.** "enroll [company]". Claude picks 2 to 4 people (or asks you to), pulls email, phone and LinkedIn from Apollo, shows you the Leads, and on your yes creates them and puts them in the US or EU call cadence.
 4. **Call.** "start my day" gives you a call sheet built from Zoho. Dial from the cadence step in Zoho, set the Call Result, then tell Claude what happened: "vm on Gil", "Gil picked up, wants info", "booked Gil for Tuesday". Claude updates the Lead, takes do-not-call people out at once, and tells you what to send next.
 5. **Wrap.** "wrap my day". Claude pulls your numbers from Zoho and gives you the scorecard and the Slack post.
@@ -42,7 +42,7 @@ When a cadence ends without a meeting, the company is parked. It comes back to y
   - **Capacity.** At most 45 Leads in a cadence at once, at most 15 new Leads a day, and no new enrollments while you have more than 20 overdue calls. Over the line, Claude will tell you what to clear first.
   - **Do not call.** A number on the DNC registry is email and LinkedIn only. Someone who says "don't call me" is out the same day. Dialing a DNC number is a red flag.
   - **Set the Call Result on every call.** Dial from the cadence step, not the Lead page. If it is not in Zoho, it did not happen.
-  - **Never** create Deals, delete records, touch someone else's records, discuss pricing, or send on a manager's behalf. A booked meeting goes to Blake and Travis as a Note and a Slack post.
+  - **Never** create Deals, delete records, touch someone else's records, discuss pricing, or send on a manager's behalf. A booked meeting goes to Travis as a Note and a Slack post.
 
 ## What is where
 
@@ -51,7 +51,7 @@ When a cadence ends without a meeting, the company is parked. It comes back to y
   - lists/: the daily CSVs and each day's split.
   - claude/intern-sdr-playbook.md: pitch, rhythm, scorecard and red flags, meeting definition, Zoho rules.
   - claude/zoho-reference.md: cadences, Call Result rules, DNC and capacity rules.
-  - interns/<your name>/: daily-log.md (plan and scorecard), prospect-notes.md (per-company touches), coaching.md (feedback from Blake and Travis).
+  - interns/<your name>/: daily-log.md (plan and scorecard), prospect-notes.md (per-company touches), coaching.md (feedback from Travis).
   - archive/: the old October lists. History only.
 
 ## Rules of the room

@@ -10,7 +10,7 @@ IDs and rules the skills use. Managers keep this current.
 | Liza Xhaferi | 6673507000005798002 |
 | Urese Bytyci | 6673507000005798011 |
 | Vullnet Polloshka | 6673507000005798029 |
-| Blake Danielson | 6673507000002568001 |
+| Blake Danielson (left Nov 2026; his records keep this owner until reassigned) | 6673507000002568001 |
 | Travis Bennett | 6673507000004721002 |
 
 ## Cadences interns use

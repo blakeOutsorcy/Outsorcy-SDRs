@@ -11,7 +11,7 @@ The research runs once, under a manager's account, and is written into the compa
   - Columns: `tools/account-attack-plan/column-spec.md`. Read it before writing. Find columns by exact header name, never by letter: the thesis columns differ per tab.
   - This repo is public. Never copy row content, company research or the account list into a repo file.
 
-Who you are working with decides the mode. Blake or Travis: either mode. An intern: Read mode only. If an intern asks to plan or refresh a company, say a manager runs it and stop.
+Who you are working with decides the mode. Travis (or any manager): either mode. An intern: Read mode only. If an intern asks to plan or refresh a company, say a manager runs it and stop.
 
 ## What Outsorcy sells (for writing the row)
 
@@ -32,7 +32,7 @@ Roles we fill: any role done from a desk. Strongest in sales (SDR, BDR, AE, RevO
 
 ## Plan mode (managers)
 
-Runs on: the daily scan (default, scheduled), "plan the new rows", "plan [company]", "refresh the account list" or "monthly refresh". One run does all three jobs below in this order, up to 20 companies of research in total. Anything left over waits for the next run; say how many.
+Runs on: the sheet-upkeep step of the Monday and Thursday morning build (scheduled, `tools/job-signals/README.md` build runbook step 11), "plan the new rows", "plan [company]", "refresh the account list" or "monthly refresh". One run does all three jobs below, up to 20 companies of research in total. Anything left over waits for the next run; say how many.
 
 No credits. No Apollo or Clay enrichment, no job-posting pulls, no Zoho, Gmail or Slack reads. Research is web search and page reads only, and the row is read first so you only search for what is missing.
 
@@ -50,7 +50,7 @@ No credits. No Apollo or Clay enrichment, no job-posting pulls, no Zoho, Gmail o
   - Monthly: Next refresh due is today or earlier. Refresh it (section 5).
   - "Plan [company]": that one company, whatever its dates. Find it by domain or name across all tabs. Not on the sheet: say so and stop. Treg adds companies, not this skill.
 
-Order: new first, then monthly by oldest Next refresh due.
+Order: monthly refresh first, oldest Next refresh due first, so planned rows never go stale; then new rows with what is left of the 20, rows whose domain has a posting in `lists/` first. Role-driven updates cost no research and are always done. "Plan [company]" and the build's approved companies are planned whatever the order.
 
 ### 3. Plan a new company
 
@@ -115,7 +115,7 @@ The rep names a company. Read its row and turn it into a brief an eighth grader 
   - Resolve to a domain from what the rep typed. If they gave a name only, match it against the Account column. Two plausible matches: ask which.
   - Read row 1 and the Domain and Account columns of each tab, find the row, then read row 1 plus that one row in full. Never read a whole tab.
   - Intern: grep `accounts/claims.md` for the company. Owned by another intern: say whose it is and stop. Not claimed: say so and point to the enroll skill's claim check.
-  - Not on the sheet, or Plan date empty: "No attack plan for [company] yet. Ask Blake or Travis to plan it." Stop. Do not research it yourself.
+  - Not on the sheet, or Plan date empty: "No attack plan for [company] yet. Ask Travis to plan it." Stop. Do not research it yourself.
 
 ### 2. Write the brief
 
@@ -129,7 +129,7 @@ Plain words, short sentences, no jargon, no sources or URLs. Seven lines:
   - **Who to look for:** the Target personas, one line each with the why.
   - **Watch out:** Don't say and the main objection, one line each.
 
-If Last refresh is more than 45 days old, add one line: "This plan was last refreshed [date]; ask a manager if anything big has changed." Cost comes up: the only cost line a rep may use is the percentage in the row. Anything else goes to Blake or Travis.
+If Last refresh is more than 45 days old, add one line: "This plan was last refreshed [date]; ask a manager if anything big has changed." Cost comes up: the only cost line a rep may use is the percentage in the row. Anything else goes to Travis.
 
 ### 3. Hand off
 

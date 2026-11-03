@@ -53,11 +53,15 @@ Five rows on the "VC Seed-B, last raise 18-36 mo..." tab (sheetId 1079290677), b
 
   1. Cell length is right. Long by design.
   2. Supporting angles stays pipe-separated, one segment per persona. The email skill is rewritten to read it.
-  3. Cost: when a row or a draft talks cost, a percentage saving like "about 70% below a [city] hire" is approved, interns included. No dollar figures or rates; anything past the percentage goes to Blake or Travis.
+  3. Cost: when a row or a draft talks cost, a percentage saving like "about 70% below a [city] hire" is approved, interns included. No dollar figures or rates; anything past the percentage goes to Travis.
+
+## Scheduled, Nov 3 (Travis)
+
+Blake has left; the whole pipeline runs under Travis's account. The Plan run is folded into the Monday and Thursday morning build (`tools/job-signals/README.md`, build runbook step 11): after the approved companies are planned and split, up to 20 companies of sheet upkeep, monthly refresh first, then unplanned rows.
 
 ## Next
 
-  1. Travis uploads the skill file as the org skill outsorcy-account-attack-plan, replacing the old one, and the daily Plan run is scheduled.
+  1. Travis uploads the skill file as the org skill outsorcy-account-attack-plan, replacing the old one.
   2. Interns get read access to the sheet and the Google Sheets connector. Read mode needs both.
   3. Add the block to the other tabs (identity columns first, thesis, then the block). Travis 300+ and Remote only lack Country or Region.
   4. Rewrite outsorcy-cold-email to read the row, keeping the 3-day cadence (Email 1 after Call 2, Email 2 after Call 4, Zoho break-up). Then the pre-call brief, then persona verification.

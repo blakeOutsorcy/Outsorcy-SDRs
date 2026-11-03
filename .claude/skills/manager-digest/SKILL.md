@@ -1,11 +1,11 @@
 ---
 name: manager-digest
-description: One view of all four interns for Blake or Travis, from Zoho and the repo. Use when a manager asks "how are the interns doing", "intern digest", "standup prep", "intern roll-up", "who's behind", or before the 16:00 standup.
+description: One view of all four interns for Travis, from Zoho and the repo. Use when a manager asks "how are the interns doing", "intern digest", "standup prep", "intern roll-up", "who's behind", or before the 16:00 standup.
 ---
 
 # Manager digest
 
-Managers only (Blake or Travis). Read only, except coaching lines the manager asks to write. Window: since the last Prishtina working day's 19:00, unless the manager names one.
+Managers only (Travis). Read only, except coaching lines the manager asks to write. Window: since the last Prishtina working day's 19:00, unless the manager names one.
 
 ## Per intern, one row
 

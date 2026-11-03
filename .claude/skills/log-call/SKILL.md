@@ -15,7 +15,7 @@ For each person named: find the Lead (intern-owned) and its newest Completed cal
 
 Use the table in claude/zoho-reference.md (Call Result to Lead Status and cadence). In particular:
   - Do not call: Lead Status Not Qualified, un-enroll from every cadence, cancel every open call for the Lead (Outgoing_Call_Status = Cancelled, normal update with cadences skipped), add Note "Asked not to be called on <date>". Set claims.md to closed if it was the last live Lead at the company.
-  - Meeting booked: confirm it meets the playbook meeting definition. Lead Status Pre-Qualified, un-enroll, cancel open calls, write the handoff Note in the playbook shape, draft the Slack post tagging Blake and Travis. claims.md status meeting.
+  - Meeting booked: confirm it meets the playbook meeting definition. Lead Status Pre-Qualified, un-enroll, cancel open calls, write the handoff Note in the playbook shape, draft the Slack post tagging Travis. claims.md status meeting.
   - Interested or Not interested: Lead Status Contacted (Not Qualified for a firm no), un-enroll, cancel open calls.
   - Requested call back: Note with the day and time in Prishtina and the prospect's time zone; keep in cadence.
   - US cadence with several open calls for the same Lead: cancel the older open calls so one remains.

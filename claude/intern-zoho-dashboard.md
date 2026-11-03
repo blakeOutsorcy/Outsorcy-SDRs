@@ -41,7 +41,7 @@ Two records get created per dial when an intern dials from the lead page and the
 
 The Lead link on a call is What_Id with $se_module = Leads, not Who_Id.
 
-## Planned workflow (not built yet, Blake to say go)
+## Planned workflow (not built yet, Travis to say go)
 
 Calls workflow rule on outgoing call logged or modified, action is a Deluge function that reads Call_Result and What_Id and moves the related Lead's status per the table above, never backwards. Native Field Update can target Leads from a Calls rule but cannot check the current Lead Status, which is why the function is needed. Requested call back stays at Attempted to Contact so the lead stays in the cadence. Cadence change to pair with it: trim the result-based un-enroll in High-Touch EU and US to Wrong number and Do not call only, and attach it to all eight calls (today it is on calls 1, 2, 3, 5 and 7 only). Optional: a validation rule on Calls that blocks saving a Completed call without a Call Result (browser only).
 
