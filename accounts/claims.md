@@ -124,8 +124,8 @@ Backfilled Oct 29, 2026 from Zoho Lead ownership. Leads = number of intern-owned
 | Sonatus | active | 4 | before Oct 29 | backfill from Zoho, Oct 29 |  |
 | Tracksmith | active | 3 | Oct 28 | Oct 28 job-post list | Also on Travis Slack list Nov 4 (Ready, fit 80). Already in cadence. |
 | Vixio | active | 4 | Oct 28 | Oct 28 job-post list |  |
-| LUXHUB | active | 3 | Oct 30 | self-claimed | luxhub.com, Strassen, Luxembourg. Raise at the 16:00 standup. Guillaume Hombourger not in cadence (no phone). |
-| 4C Strategies | parked | 4 | before Oct 29 | backfill from Zoho, Oct 29 |  |
+| LUXHUB | closed | 3 | Oct 30 | self-claimed | luxhub.com, Strassen, Luxembourg. Nov 5: told Urese they cannot hire outside Luxembourg. Not qualified, do not re-enroll. |
+| 4C Strategies | closed | 4 | before Oct 29 | backfill from Zoho, Oct 29 | Nov 5: Urese asked to drop it. Do not re-enroll. |
 | Zelis | claimed | 0 | Nov 2 | lists/2026-11-02.csv | Implementation Specialist, Creve Coeur. Large company (3106 staff). |
 | HealthEdge | claimed | 0 | Nov 2 | lists/2026-11-02.csv | Claims Quality Auditor, Enrollment Quality Auditor. Large company (2682 staff). |
 | Healthcare Fraud Shield | claimed | 0 | Nov 2 | lists/2026-11-02.csv | Customer Support Specialist, Implementation Specialist, Chesterfield. |
