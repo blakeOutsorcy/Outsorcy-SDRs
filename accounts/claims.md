@@ -122,7 +122,7 @@ Backfilled Oct 29, 2026 from Zoho Lead ownership. Leads = number of intern-owned
 | Rapid7 | active | 2 | before Oct 29 | backfill from Zoho, Oct 29 |  |
 | RudderStack | active | 2 | before Oct 29 | backfill from Zoho, Oct 29 |  |
 | Sonatus | active | 4 | before Oct 29 | backfill from Zoho, Oct 29 |  |
-| Tracksmith | active | 3 | Oct 28 | Oct 28 job-post list |  |
+| Tracksmith | active | 3 | Oct 28 | Oct 28 job-post list | Also on Travis Slack list Nov 4 (Ready, fit 80). Already in cadence. |
 | Vixio | active | 4 | Oct 28 | Oct 28 job-post list |  |
 | LUXHUB | active | 3 | Oct 30 | self-claimed | luxhub.com, Strassen, Luxembourg. Raise at the 16:00 standup. Guillaume Hombourger not in cadence (no phone). |
 | 4C Strategies | parked | 4 | before Oct 29 | backfill from Zoho, Oct 29 |  |
@@ -133,6 +133,25 @@ Backfilled Oct 29, 2026 from Zoho Lead ownership. Leads = number of intern-owned
 | Expression | claimed | 0 | Nov 2 | lists/2026-11-02.csv | System Administrator (Azure), Washington. |
 | Sagacity | active | 3 | Nov 2 | lists/2026-11-02.csv | Account Manager, London. Europe bucket, EU cadence. Sam Jayes and Dean Standing in High-Touch EU Calls Nov 3; Harry Dougall DNC, email and LinkedIn only. Enriched via Apollo (Travis account, approved). |
 | Highland Electric Fleets | active | 4 | Nov 2 | self-claimed | highlandfleets.com, Beverly, MA. Nicole Lewandowski and Natasha Lawrence in High-Touch US Calls Nov 2; Evelyn Krasnow and Gaurav Dubey DNC, email and LinkedIn only. CSM (remote), Senior Brand Manager, Growth Marketing. Raise at the 16:00 standup. Attack plan: https://claude.ai/artifact/WCBHPHTkgwhB5Ly3t5Y62a |
+| Hatch | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Hot, fit 33. Forward Deployed Engineer, Enterprise AE, Sr Content Marketing and Social Media Manager (remote), +1. 5 business days, to Nov 11. |
+| Runway | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Hot, fit 33. Senior/Staff Platform Engineer, Senior/Staff Product Engineer (remote). 5 business days, to Nov 11. |
+| Emburse Abacus | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Hot, fit 0. AE Velocity, AE SMB, Account Manager SMB (remote), +5. Fit 0 flagged to Travis. 5 business days, to Nov 11. |
+| Ranger | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Warm, fit 70. Full-Stack Engineer (hybrid). 5 business days, to Nov 11. |
+| Alleva | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Warm, fit 63. Senior Software Engineer (office: Draper). 5 business days, to Nov 11. |
+| ClientSuccess | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Warm, fit 50. Senior Software Engineer (Lehi), Senior CSM (Fairfield), Account Executive (Lehi). 5 business days, to Nov 11. |
+| LinkUp | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Warm, fit 33. SDR/BDR, ML Engineer (hybrid), Senior Backend Engineer, +6. 5 business days, to Nov 11. |
+| Digital Hands | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Warm, fit 28. Associate DevOps Engineer. 5 business days, to Nov 11. |
+| Root | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Warm, fit 18. Enterprise Client Success Manager (office: Grand Rapids). 5 business days, to Nov 11. |
+| Mployer | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Ready, fit 90. No open job right now. 5 business days, to Nov 11. |
+| Ordway - Billing and Revenue Automation | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Ready, fit 85. No open job right now. 5 business days, to Nov 11. |
+| LunaJoy Health | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Ready, fit 83. No open job right now. 5 business days, to Nov 11. |
+| Appcircle | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Ready, fit 78. No open job right now. 5 business days, to Nov 11. |
+| Next Quarter | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Ready, fit 78. No open job right now. 5 business days, to Nov 11. |
+| Dragonboat | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Ready, fit 68. No open job right now. 5 business days, to Nov 11. |
+| Ilant Health | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Ready, fit 65. No open job right now. 5 business days, to Nov 11. |
+| GoFormz | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Ready, fit 63. No open job right now. 5 business days, to Nov 11. |
+| Zipit Wireless, Inc. | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Ready, fit 60. No open job right now. 5 business days, to Nov 11. |
+| Angel Reyes & Associates | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Ready, fit 58. No open job right now. 5 business days, to Nov 11. |
 
 ## Vullnet
 
