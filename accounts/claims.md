@@ -133,13 +133,13 @@ Backfilled Oct 29, 2026 from Zoho Lead ownership. Leads = number of intern-owned
 | Expression | claimed | 0 | Nov 2 | lists/2026-11-02.csv | System Administrator (Azure), Washington. |
 | Sagacity | active | 3 | Nov 2 | lists/2026-11-02.csv | Account Manager, London. Europe bucket, EU cadence. Sam Jayes and Dean Standing in High-Touch EU Calls Nov 3; Harry Dougall DNC, email and LinkedIn only. Enriched via Apollo (Travis account, approved). |
 | Highland Electric Fleets | active | 4 | Nov 2 | self-claimed | highlandfleets.com, Beverly, MA. Nicole Lewandowski and Natasha Lawrence in High-Touch US Calls Nov 2; Evelyn Krasnow and Gaurav Dubey DNC, email and LinkedIn only. CSM (remote), Senior Brand Manager, Growth Marketing. Raise at the 16:00 standup. Attack plan: https://claude.ai/artifact/WCBHPHTkgwhB5Ly3t5Y62a |
-| Hatch | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | usehatchapp.com (the company posting the jobs). Sheet row is hatchcare.com, a different company; no row for usehatchapp.com yet. LinkedIn profiles say acquired by Yelp: possible DQ. Waiting on Travis to plan or DQ it. Hot, fit 33. Forward Deployed Engineer, Enterprise AE, Sr Content Marketing and Social Media Manager (remote), +1. 5 business days, to Nov 11. |
-| Runway | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Jobs are from runway.com (Runway AI, the video company). Sheet row is Runway Financial (cfo.ai), a different company; no row for runway.com. Waiting on Travis. Hot, fit 33. Senior/Staff Platform Engineer, Senior/Staff Product Engineer (remote). 5 business days, to Nov 11. |
+| Hatch | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | hatchcare.com. Travis Nov 5: job links were a different company (usehatchapp.com). No open jobs now. Moved to Ready. |
+| Runway | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | cfo.ai (Runway Financial). Travis Nov 5: job links were a different company (runway.com). No open jobs now. Moved to Ready. |
 | Emburse Abacus | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Hot, fit 0. AE Velocity, AE SMB, Account Manager SMB (remote), +5. Fit 0 flagged to Travis. 5 business days, to Nov 11. |
 | Ranger | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Warm, fit 70. Full-Stack Engineer (hybrid). 5 business days, to Nov 11. |
 | Alleva | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Warm, fit 63. Senior Software Engineer (office: Draper). 5 business days, to Nov 11. |
 | ClientSuccess | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Warm, fit 50. Senior Software Engineer (Lehi), Senior CSM (Fairfield), Account Executive (Lehi). 5 business days, to Nov 11. |
-| LinkUp | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Warm, fit 33. SDR/BDR, ML Engineer (hybrid), Senior Backend Engineer, +6. 5 business days, to Nov 11. |
+| LinkUp | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | linkup.com. Travis Nov 5: job links were a different company. No open jobs now. |
 | Digital Hands | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Warm, fit 28. Associate DevOps Engineer. 5 business days, to Nov 11. |
 | Root | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Warm, fit 18. Enterprise Client Success Manager (office: Grand Rapids). 5 business days, to Nov 11. |
 | Mployer | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Ready, fit 90. No open job right now. 5 business days, to Nov 11. |
