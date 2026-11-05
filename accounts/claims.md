@@ -137,7 +137,7 @@ Backfilled Oct 29, 2026 from Zoho Lead ownership. Leads = number of intern-owned
 | Runway | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | cfo.ai (Runway Financial). Travis Nov 5: job links were a different company (runway.com). No open jobs now. Moved to Ready. |
 | Emburse Abacus | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Hot, fit 0. AE Velocity, AE SMB, Account Manager SMB (remote), +5. Fit 0 flagged to Travis. 5 business days, to Nov 11. |
 | Ranger | active | 3 | Nov 4 | Travis Slack list, Nov 4 | ranger.net. Warm, fit 70. Full-Stack Engineer (Denver, hybrid). Josh Ip (CEO), Noah Epstein (Engineering, ex-founder), Chaz Beauchamp (Lead FDE, no email) in Apollo sequence Urese - US - Sequence Nov 5, from urese@outsorcy.com. Not yet in Zoho. |
-| Alleva | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Warm, fit 63. Senior Software Engineer (office: Draper). 5 business days, to Nov 11. |
+| Alleva | active | 3 | Nov 4 | Travis Slack list, Nov 4 | helloalleva.com. Warm, fit 63. Senior Software Engineer (Draper), SDR (Austin, open a year). John David (VP Sales), Steven McCall (CEO), Vivek Narayanaswamy (CTO) in Apollo sequence Urese - US - Sequence Nov 5. Steven got an Outsorcy sequence from lum@ in Oct 2025, no reply. Not yet in Zoho. |
 | ClientSuccess | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Warm, fit 50. Senior Software Engineer (Lehi), Senior CSM (Fairfield), Account Executive (Lehi). 5 business days, to Nov 11. |
 | LinkUp | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | linkup.com. Travis Nov 5: job links were a different company. No open jobs now. |
 | Digital Hands | claimed | 0 | Nov 4 | Travis Slack list, Nov 4 | Warm, fit 28. Associate DevOps Engineer. 5 business days, to Nov 11. |
